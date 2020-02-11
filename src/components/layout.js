@@ -1,26 +1,23 @@
-import React from 'react'
-import { Link } from 'gatsby'
-import base from './base.css'
-import Container from './container'
-import Navigation from './navigation'
+import React, {useEffect} from 'react'
+import Cursor from './Cursor'
 
-class Template extends React.Component {
-  render() {
-    const { location, children } = this.props
-    let header
+const Layout = ({children}) => {
+  let window = undefined;
 
-    let rootPath = `/`
-    if (typeof __PREFIX_PATHS__ !== `undefined` && __PREFIX_PATHS__) {
-      rootPath = __PATH_PREFIX__ + `/`
-    }
+  useEffect(() => {
+    if(typeof window === undefined) return;
+    else  window = window
+  })
 
-    return (
-      <Container>
-        <Navigation />
-        {children}
-      </Container>
-    )
-  }
+  
+ 
+  return (
+    <main className="landing">
+      {children}
+      <Cursor listenerElement={window} />
+    </main>
+  )
+  
 }
 
-export default Template
+export default Layout

@@ -1,0 +1,49 @@
+@import './variables';
+
+.cursor-button {
+    padding: 4px 20px;
+    text-decoration: none;   
+    position: relative;
+    display: block;
+    overflow: hidden;
+    float: right;
+    text-align: center;
+    text-transform: uppercase;
+    z-index: 1;
+    background: transparent;
+
+    &.active {
+      span {
+        width: 225%;
+        height: 562.5px;
+      }
+    }
+
+    &:hover {
+        font-weight: bold;
+        span {
+            width: 225%;
+            height: 562.5px;
+          }
+    }
+
+    span {
+        position: absolute;
+        z-index: -1;
+        display: block;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        -webkit-transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
+        transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+      }
+
+    .inner-text{
+      display:inline-block;
+      padding-left: 5px;
+    }
+
+      
+  }
