@@ -1,4 +1,3 @@
-const languages = require('./src/data/languages');
 
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`
@@ -20,8 +19,7 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Contentful starter',
-    languages
+    title: 'Gatsby Contentful starter'
   },
   pathPrefix: '/gatsby-contentful-starter',
   plugins: [
@@ -30,14 +28,6 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
     'gatsby-plugin-sass',
-    {
-      resolve: 'gatsby-plugin-i18n',
-      options: {
-        langKeyForNull: 'any',
-        langKeyDefault: languages.defaultLangKey,
-        useLangKeyLayout: false
-      }
-    },
     {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,

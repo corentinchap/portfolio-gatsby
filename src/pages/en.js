@@ -32,12 +32,51 @@ const IndexEN = () => {
             node_locale
           }
         }
+        allContentfulTestimonial(filter: {node_locale: {eq: "en-US"}}) {
+          nodes {
+            author
+            authorOccupation
+            avatar {
+              file {
+                url
+              }
+            }
+            projectUrl
+            quote {
+              json
+            }
+          }
+        }
+        allContentfulSkill(filter: {node_locale: {eq: "en-US"}}) {
+          nodes {
+            title
+            description {
+              json
+            }
+            image {
+              file {
+                url
+              }
+            }
+            technologies {
+              file {
+                url
+              }
+            }
+          }
+        }
+
       }
       
 `) 
 
     return (
-        <App person={data.contentfulPerson} projects={data.allContentfulProject.nodes} />
+        <App 
+          person={data.contentfulPerson} 
+          projects={data.allContentfulProject.nodes} 
+          testimonials={data.allContentfulTestimonial.nodes} 
+          skills={data.allContentfulSkill.nodes}  
+        />
     )
 }
 export default IndexEN

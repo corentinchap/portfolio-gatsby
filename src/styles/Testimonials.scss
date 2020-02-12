@@ -18,9 +18,28 @@
 
 .testimonials {
     padding-top: 100px;
+    position: relative;
+    &:before, &:after {
+      content: "\"";
+      position: absolute;
+      transform: scale(12);
+      z-index: 2;
+      color: $orange;
+      font-style: normal;
+      font-family: Passion One;
+    }
+    &:before {
+      transform: scale(12) rotate(180deg);
+      left: 8px;
+      top: 175px;
+    }
+    &:after {   
+      right: 295px;
+      bottom: 50px;
+    }
 
     blockquote {
-      border-left: 3px solid $orange;
+      border-left: 3px solid $blue;
     }
   }
   
@@ -32,7 +51,8 @@
     font-style: italic;
     position: relative;
     width: 77%;
-
+    
+    
     .website-link {
       float: right;
       bottom: 0;
@@ -56,30 +76,9 @@
       font-size: 16px;
       font-weight: 600;
     }
-    p {
-      &:before {
-        content: "\"";
-        position: absolute;
-        transform: scaleY(-1) scaleX(-1);
-        top: -40px;
-        left: 0px;
-        color: $blue;
-        font-size: 140px;
-        font-style: normal;
-        font-family: Passion One;
-      }
-      &:after {
-        content: "\"";
-        position: absolute;
-        transform: scaleY(1) scaleX(1);
-        top: 25px;
-        right: 0px;
-        color: $blue;
-        font-size: 140px;
-        font-style: normal;
-        font-family: Passion One;
-      }
-    }
+    
+    
+    
   }
   
 

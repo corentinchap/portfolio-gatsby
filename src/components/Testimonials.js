@@ -1,0 +1,37 @@
+import React from 'react';
+import Carousel from "./Carousel";
+import '../styles/Testimonials.scss';
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+
+const Testimonials = ({testimonials}) => { 
+    
+    return (
+        <div className="container testimonials">
+            <h1>What my clients says about me</h1>              
+                <Carousel id="testimonials" autoHeightRefSelector=".testimonial-quote" autoHeightOffset="50" >
+                    {testimonials.map((testimonial, index) => {
+                        const {quote, author, authorOccupation, projectUrl, avatar} = testimonial;
+                        return(
+                            <div key={index} className="testimonial">
+                                <blockquote className="testimonial-quote">
+                                    {documentToReactComponents(quote.json,{})}                          
+                                    <div className="testimonial-author"> 
+                                        – {author}
+                                        <span>{authorOccupation}</span>
+                                    </div>
+                                    <div className="website-link">{projectUrl}</div>
+                                </blockquote>
+                                <div className="testimonial-picture hide-on-med-and-down">
+                                    <img src={avatar.file.url} alt="testimonial-avatar"></img>
+                                </div>
+                            </div>    
+                        )
+                    
+                    })}
+                    
+                </Carousel> 
+        </div>
+    )  
+}
+
+export default Testimonials

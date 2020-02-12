@@ -8,6 +8,6 @@ import 'materialize-css/dist/css/materialize.min.css'
 import '../styles/App.scss'
 import '../styles/Landing.scss'
 
-const RootIndex = () => <Redirect to={"/en"} />
+const RootIndex = () => <></>
 
 export default RootIndex

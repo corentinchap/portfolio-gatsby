@@ -1,4 +1,9 @@
 
-exports.createPages = ({ graphql, actions }) => {
- 
+exports.createPages = ({ actions }) => {
+    actions.createRedirect({
+        fromPath: `/`,
+        toPath: `/en`,
+        isPermanent: `true`,
+        redirectInBrowser: true
+    })
 }
