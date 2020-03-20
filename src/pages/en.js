@@ -1,6 +1,6 @@
 import React from 'react'
 import {useStaticQuery, graphql} from 'gatsby'
-import App from '../components/App'
+import {App} from '../components/App'
 
 const IndexEN = () => {
     const data = useStaticQuery(graphql`
@@ -65,6 +65,16 @@ const IndexEN = () => {
             }
           }
         }
+        contentfulTranslations(node_locale: {eq: "en-US"}) {
+          clientTestimonialTitle
+          contactMeButtonLabel
+          contactMeTitle
+          getInTouchLabel
+          skillsetTitle
+          socialMediaStalkTitle
+          workSectionTitle
+          node_locale
+        }
 
       }
       
@@ -76,6 +86,7 @@ const IndexEN = () => {
           projects={data.allContentfulProject.nodes} 
           testimonials={data.allContentfulTestimonial.nodes} 
           skills={data.allContentfulSkill.nodes}  
+          translations={data.contentfulTranslations}
         />
     )
 }

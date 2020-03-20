@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import ProjectDetails from './ProjectDetails';
 import Carousel from './Carousel';
+import {TranslationContext} from '../contexts/TranslationContext'
 
 const WorkSection = ({projects}) => {
     const [selectedProject, setSelectedProject] = useState(0);
@@ -11,21 +12,24 @@ const WorkSection = ({projects}) => {
     }
   
     return (
-            <div className="work-section container">
-                <h1>What I do</h1>
-                <div className="project-details">
-                    <Carousel id="project-carousel" autoHeightRefSelector={".project-content"} autoHeightOffset="25" >
-                        {projects.map((project,i) => {
-                            return ( 
-                                <React.Fragment key={i}>
-                                    <ProjectDetails project={project} ></ProjectDetails>
-                                </React.Fragment>
-                            );
-                        })}
-                    </Carousel>                                   
-            </div>
+        <TranslationContext.Consumer>
+            {
+            translation => (
+                <div className="work-section container">
+                    <h1>{translation.workSectionTitle}</h1>
+                    <div className="project-details">
+                        <Carousel id="project-carousel" autoHeightRefSelector={".project-content"} autoHeightOffset="25" >
+                            {projects.map((project,i) => {
+                                return ( 
+                                    <ProjectDetails key={project.title} project={project} />     
+                                );
+                            })}
+                        </Carousel>                                   
+                    </div>    
+                </div>
+            )}
+        </TranslationContext.Consumer>
             
-        </div>
     )
     
 }

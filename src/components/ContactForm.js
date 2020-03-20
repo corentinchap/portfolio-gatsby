@@ -53,7 +53,7 @@ class ContactForm extends Component {
            
             <div className="row">
                 <form className="col s12">
-                    <h3>Drop me a message !</h3>
+                    <h3>{this.props.title}</h3>
                     <div className="row">
                         <div className="input-field col s12">
                             <i className="material-icons prefix"><FontAwesomeIcon icon={faUserTie} /></i>

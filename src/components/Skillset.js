@@ -1,19 +1,26 @@
 import React from 'react';
 import '../styles/Skillset.scss';
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-
+import {TranslationContext} from '../contexts/TranslationContext'
 
 const Skillsets = ({skills}) => {
 
     return (
-            <div className="skillsets container">
-                <h1 style={{marginBottom: 15}}>Skillset</h1>    
-                    {
-                        skills.map((skill, i) => 
-                            <Skillset skill={skill} index={i} key={i}/>     
-                        )       
-                    }
-            </div>
+        <TranslationContext.Consumer>
+            {
+                translations => (
+                    <div className="skillsets container">
+                        <h1 style={{marginBottom: 15}}>{translations.skillsetTitle}</h1>    
+                            {
+                                skills.map((skill, i) => 
+                                    <Skillset skill={skill} index={i} key={i}/>     
+                                )       
+                            }
+                    </div>
+                )
+            }
+        </TranslationContext.Consumer>
+            
 
     )
 }

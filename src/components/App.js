@@ -6,22 +6,30 @@ import Testimonials from './Testimonials'
 import WorkSection from './WorkSection'
 import Skillset from './Skillset'
 import Footer from './Footer'
+import {TranslationProvider} from '../contexts/TranslationContext'
 import 'materialize-css/dist/css/materialize.min.css'
 import '../styles/App.scss'
 import '../styles/Landing.scss'
 
+
+const TranslationContext = undefined;
+
 const App = (props) => {
-  const {person, projects, testimonials, skills} = props
+  const {person, projects, testimonials, skills, translations} = props
+  const TranslationContext = React.createContext(translations)
+
   return (
     <Layout>
-      <AboutSection person={person} />
-      <WorkSection projects={projects} />
-      <Testimonials testimonials={testimonials} />
-      <Skillset skills={skills} />
-      <Footer />
+      <TranslationProvider translations={translations}>
+        <AboutSection person={person} />
+        <WorkSection projects={projects} />
+        <Testimonials testimonials={testimonials} />
+        <Skillset skills={skills} />
+        <Footer />
+      </TranslationProvider>  
     </Layout>
   )
   
 }
 
-export default App
+export {App, TranslationContext }
