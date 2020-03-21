@@ -1,5 +1,4 @@
 import React from 'react'
-import Helmet from 'react-helmet'
 import Layout from './Layout'
 import AboutSection from './AboutSection'
 import Testimonials from './Testimonials'
@@ -12,11 +11,11 @@ import '../styles/App.scss'
 import '../styles/Landing.scss'
 
 
-const TranslationContext = undefined;
+let TranslationContext = undefined;
 
 const App = (props) => {
   const {person, projects, testimonials, skills, translations} = props
-  const TranslationContext = React.createContext(translations)
+  TranslationContext = React.createContext(translations)
 
   return (
     <Layout>

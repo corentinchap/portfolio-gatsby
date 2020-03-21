@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import '../styles/Carousel.scss';
+import {document, window} from 'browser-monads';
 
 const w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 

@@ -47,9 +47,22 @@ $pattern2:#163256;
 .lang-switcher--wrapper{
     position: absolute;
     right: 50px;
+    select{
+        display: inline;
+        background-color: transparent;
+        font-size: 25px;
+        color: white;
+        font-family: VT323;
 
+        option{
+            font-size: 25px;
+            color: #174ffc;
+            font-family: VT323;
+        }
+    }
     .select-wrapper{
         display: flex;
+        z-index: 1;
         align-items: center;
     }
     svg[data-icon]{
@@ -57,20 +70,7 @@ $pattern2:#163256;
         z-index: 1;
         margin-right: 10px;
     }
-    .dropdown-content li>span {
-        font-size: 25px;
-        color: #174ffc;
-        font-family: VT323;
-    }
-    .select-wrapper input.select-dropdown, .dropdown-content li>a{
-        font-size: 25px;
-        color: white;
-        font-family: VT323;
-    }
-    .select-wrapper .caret{
-        fill: white;
-        z-index: 1;
-    }
+   
 }
 
 

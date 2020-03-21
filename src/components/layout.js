@@ -1,18 +1,11 @@
 import React, {useEffect} from 'react'
 import Cursor from './Cursor'
+import {window} from 'browser-monads'
 
 const Layout = ({children}) => {
-  let window = undefined;
-
-  useEffect(() => {
-    if(typeof window === undefined) return;
-    else  window = window
-  })
-
-  
  
   return (
-    <main className="landing">
+    <main className="landing">    
       {children}
       <Cursor listenerElement={window} />
     </main>

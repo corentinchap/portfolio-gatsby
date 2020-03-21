@@ -8,8 +8,8 @@ import freecodecamp from '../assets/freecodecamp.svg'
 import codewars from '../assets/codewars.png'
 import {faGlobeEurope} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import M from 'materialize-css'
 import { redirectTo, navigate } from '@reach/router'
+import {Select} from 'react-materialize'
 
 const AboutSection = (props) => {
     
@@ -82,16 +82,11 @@ const AboutSection = (props) => {
     
 }
 const LangSwitcher = ({currentLocale}) => {
-    useEffect(() =>{
-        let elems = document.querySelectorAll('select');
-        let instances = M.FormSelect.init(elems, {})
-    })
-
     return (
         <div className="lang-switcher--wrapper">
             <div className="input-field">
                 <div className="select-wrapper">
-                    <FontAwesomeIcon size={"2x"} icon={faGlobeEurope} color="white" />
+                <FontAwesomeIcon size={"2x"} icon={faGlobeEurope} color="white" />
                 <svg className="caret" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg>
                 <select value={currentLocale === 'en-US' ? '/en' : '/fr'} onChange={(e) => navigate(e.target.value)} tabIndex="-1">
                     <option value="/en">English</option>

@@ -42,7 +42,7 @@ class Footer extends Component {
                             
                                 </div>
                                 <div className="col m12 l6">
-                                    <ContactForm title={translations.contactMeTitle}/>
+                                    <ContactForm translations={translations}/>
                                 </div>
                             </div>
                             </div>

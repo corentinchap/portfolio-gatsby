@@ -58,6 +58,21 @@
     }
 }
 
+.contact-form{
+    .infos {
+        span{
+            position: relative;
+            bottom: 4px;
+            font-family: Space Mono;
+            font-weight: bold;
+            left: 6px;
+            font-size: 1.2em;
+        }
+        color: white;
+        background-color: $orange;
+    }
+}
+
 .input-field label {
     color: #fff;
     font-weight: bold;

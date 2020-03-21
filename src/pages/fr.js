@@ -75,6 +75,9 @@ const IndexFR = () => {
           skillsetTitle
           socialMediaStalkTitle
           workSectionTitle
+          contactFormSuccess
+          contactFormBroken
+          contactFormFillWarning
           node_locale
         }
       }
