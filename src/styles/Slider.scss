@@ -1,0 +1,147 @@
+@import './variables';
+
+.slider{
+    
+    height: unset; //reset materializecss
+    
+    span[class^="control-"] i{
+        border-radius: 50%;
+        padding: 0 4px;
+        background: lighten($blue,40%);
+    }
+
+    .slider-wrapper {
+        display:grid;
+        grid-template-columns: 1fr;
+        padding:15px;
+        .slide-wrapper {
+            grid-row-start:1;
+            grid-column-start:1;
+            height: 98.5%;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+            &.show{
+                opacity: 1;
+              }
+        }
+    }
+}
+
+.control-left, .control-right{
+    position: absolute;
+    font-size: 30px;
+    z-index: 9;
+    transform: translateY(50%);
+    border-radius: 50%;
+    color: $blue;
+    transition: .5s ease-in;
+    top: 35%;
+
+    &[data-cursor="hover"] > i{
+        transition: opacity 0.5s ease-in-out;
+        opacity:1;
+        padding: 7px 12px;
+        border: 3px solid $orange;
+        border-radius: 50%;
+        svg path{
+        fill:$orange;
+        }
+    }
+      
+}
+.control-right {
+    right: -50px;
+    &:hover{
+        right:-60px;
+    }
+}
+.control-left {
+    left: -50px;
+    &:hover{
+        left:-60px;
+    }
+}
+
+
+    
+.selector {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+
+    li {
+        width: 12px;
+        height: 12px;
+        border: 2px solid $orange;
+        border-radius: 50%;
+        margin: 0 15px;
+        transition: all 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+        &:hover{
+            background: lighten($orange,30%);
+        }
+    
+        &.selected{
+            background: $orange;
+        }
+    }
+}
+/* Browserframe  */   
+.browser-frame {
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
+
+    img {
+        max-width: 100%;
+    }
+    .browser-controls {
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        background: #E6ECEF;
+        color: #BEC4C6;
+    }
+        
+    .window-controls {
+        flex: 0 0 60px;
+        margin: 0 2%;
+
+        span {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            border-radius: 50px;
+            background: #FF8585;
+        
+            &.minimise {
+                background: #FFD071;
+            }
+            &.maximise {
+                background: #74ED94;
+            }
+        }     
+    }
+
+    .url-bar {
+        flex-grow: 1;
+        margin-right: 2%;
+        padding: 5px 5px 0 10px;
+        font-family: monospace;
+        color: #889396;
+        overflow: hidden;
+    }
+        
+    .white-container {
+        height: 25px;
+        border-radius: 3px;
+        font-size: 11px;
+        background: white;
+    }
+
+    
+        
+    }
+      
+

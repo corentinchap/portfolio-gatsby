@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack:///./src/pages/404.js"],"names":["NotFound"],"mappings":"2FAAA,OAGeA,UAHE,WACb,MAAO","file":"component---src-pages-404-js-5b84dfb1e72cce77983a.js","sourcesContent":["const NotFound = () => {\r\n    return \"404\"\r\n}\r\nexport default NotFound"],"sourceRoot":""}
