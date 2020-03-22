@@ -24,7 +24,7 @@ class ProjectDetails extends Component {
                     {documentToReactComponents(description.json,{})}
                 </div>
                 <div className="cta">  
-                    {url.length > 0 && 
+                    {url && 
                     <CursorAwareButton 
                         defaultColor={"#1e1d28"} 
                         activeColor={"#fe9b34"}
@@ -34,7 +34,7 @@ class ProjectDetails extends Component {
                     <div className="inner-text">website</div>
                     </CursorAwareButton>  }       
                     
-                    {gitUrl.length > 0 && 
+                    {gitUrl && 
                     <CursorAwareButton 
                         activeColor={"white"} 
                         defaultColor={"#fe9b34"} 
