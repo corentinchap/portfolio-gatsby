@@ -90,6 +90,7 @@ const IndexEN = () => {
           testimonials={data.allContentfulTestimonial.nodes} 
           skills={data.allContentfulSkill.nodes}  
           translations={data.contentfulTranslations}
+          lang="en-US"
         />
     )
 }

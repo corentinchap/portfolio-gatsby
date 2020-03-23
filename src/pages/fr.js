@@ -91,6 +91,7 @@ const IndexFR = () => {
           testimonials={data.allContentfulTestimonial.nodes} 
           skills={data.allContentfulSkill.nodes}
           translations={data.contentfulTranslations}  
+          lang="fr-ch"
         />    
     )
 }

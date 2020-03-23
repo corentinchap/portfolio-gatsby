@@ -9,16 +9,18 @@ import {TranslationProvider} from '../contexts/TranslationContext'
 import 'materialize-css/dist/css/materialize.min.css'
 import '../styles/App.scss'
 import '../styles/Landing.scss'
+import Helmet from 'react-helmet'
 
 
 let TranslationContext = undefined;
 
 const App = (props) => {
-  const {person, projects, testimonials, skills, translations} = props
+  const {person, projects, testimonials, skills, translations, lang} = props
   TranslationContext = React.createContext(translations)
 
   return (
     <Layout>
+      <Helmet htmlAttributes={{lang:lang}} />
       <TranslationProvider translations={translations}>
         <AboutSection person={person} />
         <WorkSection projects={projects} />
