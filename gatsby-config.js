@@ -19,15 +19,36 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Contentful starter'
+    title: 'Chapatte.CO Portfolio'
   },
-  pathPrefix: '/gatsby-contentful-starter',
   plugins: [
     'gatsby-transformer-remark',
     'gatsby-transformer-sharp',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
     'gatsby-plugin-sass',
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: "Chapatte CO Portfolio",
+        short_name: "Chapatte CO",
+        description: "Showcase of the work of Chapatte.CO",
+        lang: 'en',
+        start_url: "/en/",
+        background_color: "#1e1d28",
+        theme_color: "#174ffc",
+        icon: "src/assets/favicon.png",
+        localize: [
+          {
+            start_url: "/fr/",
+            lang: "fr",
+            short_name: "Chapatte CO",
+            name: "Chapatte CO Portfolio",
+            description: "Démo du travail de Chapatte.CO"
+          }
+        ]
+      },
+    },
     {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
