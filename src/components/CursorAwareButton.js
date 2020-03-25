@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const CursorAwareButtonWrapper = styled.div`
     a:hover{
-        color: ${props => props.theme.primary};
+        color: ${props => props.fontColor ? props.fontColor : props.theme.primary};
         font-weight: 700;
 
         span{
@@ -12,8 +12,8 @@ const CursorAwareButtonWrapper = styled.div`
         }
     }
     a{
-        color: ${props => props.theme.fontColor};
-        border: 1px solid ${props => props.theme.fontColor};
+        color: ${props => props.activeColor ? props.activeColor : props.theme.primary};
+        border: 1px solid ${props => props.activeColor ? props.activeColor : props.theme.primary};
         margin-top: 12px;
         padding: 4px 20px;
         text-decoration: none;
@@ -27,7 +27,7 @@ const CursorAwareButtonWrapper = styled.div`
         background: transparent;
 
         &.active{
-            color: ${props => props.theme.primary}
+            color: ${props => props.fontColor ? props.fontColor : props.theme.primary}
         }
     }
     span{
@@ -39,8 +39,13 @@ const CursorAwareButtonWrapper = styled.div`
         border-radius: 50%;
         transition: width .4s ease-in-out,height .4s ease-in-out;
         transform: translate(-50%,-50%);
-        background: ${props => props.theme.fontColor}
+        background: ${props => props.activeColor ? props.activeColor : props.theme.primary}
     }
+    .inner-text{
+        display:inline-block;
+        padding-left: 5px;
+    }
+    
 `
 
 class CursorAwareButton extends Component {
@@ -61,14 +66,23 @@ class CursorAwareButton extends Component {
         if(span)
             span.setAttribute('style', 'top:'+relY+'px;left:'+relX+'px;')
     }
+    
+    scrollToForm () {
+        window.scrollBy({ 
+            top: document.querySelector('body').scrollHeight, 
+            left: 0, 
+            behavior: 'smooth' 
+          });
+    }
+
   
     render() {
     
         return (
-           <CursorAwareButtonWrapper>
+           <CursorAwareButtonWrapper {...this.props} >
                 <a  onMouseEnter={this.buttonMouseInteraction} 
                     onMouseLeave={this.buttonMouseInteraction}
-                    onClick={this.props.onClick} 
+                    onClick={this.scrollToForm} 
                     data-cursor="hover" 
                 >
                 {this.props.icon !== "" ? this.props.icon : ""}

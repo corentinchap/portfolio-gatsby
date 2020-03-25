@@ -1,5 +1,5 @@
 import React from 'react';
-import Carousel from "./Carousel";
+import Carousel from "./carousel/Carousel";
 import '../styles/Testimonials.scss';
 import {TranslationContext} from '../contexts/TranslationContext'
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"

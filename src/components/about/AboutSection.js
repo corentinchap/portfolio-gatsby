@@ -9,15 +9,6 @@ const AboutSection = (props) => {
     
     const {name, position, linkedinUrl, githubUrl, codewarsUrl, freecodecampUrl, image} = props.person;
     const links = {linkedinUrl, githubUrl, codewarsUrl, freecodecampUrl};
-
-    const scrollToForm = () => {
-        window.scrollBy({ 
-            top: document.querySelector('body').scrollHeight, 
-            left: 0, 
-            behavior: 'smooth' 
-          });
-    }
-
   
     return (
         <TranslationContext.Consumer>
@@ -35,7 +26,12 @@ const AboutSection = (props) => {
                                 </ProfilePicture>
                             </div>
                             <div className="content valign-wrapper col s12 m6">
-                                <AboutPresentation name={name} position={position} links={links} getInTouchLabel={translations.getInTouchLabel}/>
+                                <AboutPresentation 
+                                    name={name} 
+                                    position={position} 
+                                    links={links} 
+                                    getInTouchLabel={translations.getInTouchLabel}
+                                />
                             </div>
                         </div>
                     </div>

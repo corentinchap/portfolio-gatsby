@@ -33,7 +33,7 @@ const AboutPresentation = ({name, position, links, getInTouchLabel}) => {
             <SocialContactWrapper>
                 <AboutSocial links={links} />
                             
-                <CursorAwareButton onClick={() => scrollToForm()} >
+                <CursorAwareButton onClick={() => scrollToForm()} isInverted>
                     {getInTouchLabel}
                 </CursorAwareButton>
                
