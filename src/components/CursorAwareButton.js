@@ -2,34 +2,6 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const CursorAwareButtonWrapper = styled.div`
-    a:hover{
-        color: ${props => props.fontColor ? props.fontColor : props.theme.primary};
-        font-weight: 700;
-
-        span{
-            width: 225%;
-            height: 562.5px;
-        }
-    }
-    a{
-        color: ${props => props.activeColor ? props.activeColor : props.theme.primary};
-        border: 1px solid ${props => props.activeColor ? props.activeColor : props.theme.primary};
-        margin-top: 12px;
-        padding: 4px 20px;
-        text-decoration: none;
-        position: relative;
-        display: block;
-        overflow: hidden;
-        float: right;
-        text-align: center;
-        text-transform: uppercase;
-        z-index: 1;
-        background: transparent;
-
-        &.active{
-            color: ${props => props.fontColor ? props.fontColor : props.theme.primary}
-        }
-    }
     span{
         position: absolute;
         z-index: -1;
@@ -39,11 +11,39 @@ const CursorAwareButtonWrapper = styled.div`
         border-radius: 50%;
         transition: width .4s ease-in-out,height .4s ease-in-out;
         transform: translate(-50%,-50%);
-        background: ${props => props.activeColor ? props.activeColor : props.theme.primary}
+        background: ${props => props.activeColor ? props.activeColor : props.theme.background}
     }
     .inner-text{
         display:inline-block;
         padding-left: 5px;
+    }
+    
+`
+const CursorAwareButtonLink = styled.a`
+    &:hover{
+        color: ${props => props.fontColor ? props.fontColor : props.theme.primary};
+
+        span{
+            width: 225%;
+            height: 562.5px;
+        }
+    }
+    
+    color: ${props => props.activeColor ? props.activeColor : props.theme.background};
+    border: 1px solid ${props => props.activeColor ? props.activeColor : props.theme.background};
+    padding: 4px 20px;
+    text-decoration: none;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    float: right;
+    text-align: center;
+    text-transform: uppercase;
+    z-index: 1;
+    background: transparent;
+
+    &.active{
+        color: ${props => props.fontColor ? props.fontColor : props.theme.primary}
     }
     
 `
@@ -79,16 +79,18 @@ class CursorAwareButton extends Component {
     render() {
     
         return (
-           <CursorAwareButtonWrapper {...this.props} >
-                <a  onMouseEnter={this.buttonMouseInteraction} 
+           <CursorAwareButtonWrapper activeColor={this.props.activeColor} >
+                <CursorAwareButtonLink  onMouseEnter={this.buttonMouseInteraction} 
                     onMouseLeave={this.buttonMouseInteraction}
                     onClick={this.scrollToForm} 
                     data-cursor="hover" 
+                    fontColor={this.props.fontColor}
+                    activeColor={this.props.activeColor}
                 >
                 {this.props.icon !== "" ? this.props.icon : ""}
                 {this.props.children}
                     <span></span>
-                </a> 
+                </CursorAwareButtonLink> 
            </CursorAwareButtonWrapper>
                        
             
