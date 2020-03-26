@@ -29,15 +29,15 @@ const Testimonials = ({testimonials}) => {
 const TestimonialQuote = ({quote, author, authorOccupation, projectUrl, avatar}) =>{
     return(
         <TestimonialQuoteWrapper>
-        <blockquote className="testimonial-quote">
+        <blockquote className="testimonial-quote col s12 m10">
             {documentToReactComponents(quote.json,{})}                          
             <div className="testimonial-author"> 
                 – {author}
                 <span>{authorOccupation}</span>
             </div>
-            <div className="website-link">{projectUrl}</div>
+            <a href={projectUrl} data-cursor="hover" className="website-link">{projectUrl}</a>
         </blockquote>
-        <div className="testimonial-picture hide-on-med-and-down">
+        <div className="testimonial-picture col m2 hide-on-med-and-down">
             <img src={avatar.file.url} alt="testimonial-avatar"></img>
         </div>
         </TestimonialQuoteWrapper>

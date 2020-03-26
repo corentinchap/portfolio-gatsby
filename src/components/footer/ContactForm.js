@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import CursorAwareButton from './CursorAwareButton'
+import CursorAwareButton from '../CursorAwareButton'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faPen, faUserTie, faEnvelope, faInfoCircle} from '@fortawesome/free-solid-svg-icons';
 import {document} from 'browser-monads';
+import {FooterTitle, ContactFormInfo, ContactFormWrapper} from './FooterWrapper'
 import * as emailjs from 'emailjs-com';
 
 
@@ -46,7 +47,8 @@ class ContactForm extends Component {
 
     }
     submitForm(e){
-       
+       console.log(this.validateForm())
+       console.log(this.props.translations)
     if(this.validateForm()){
         
         emailjs.send('default_service','template_HMQ3hbU7',this.state).then((response) => {
@@ -77,8 +79,8 @@ class ContactForm extends Component {
         return (
            
             <div className="row">
-                <form className="col s12 contact-form">
-                    <h3>{this.props.translations.contactMeTitle}</h3>
+                <ContactFormWrapper>
+                    <FooterTitle>{this.props.translations.contactMeTitle}</FooterTitle>
                     <div className="row">
                         <div className="input-field col s12">
                             <i className="material-icons prefix"><FontAwesomeIcon icon={faUserTie} /></i>
@@ -98,19 +100,19 @@ class ContactForm extends Component {
                             <textarea name="message" placeholder="message" id="textarea1" onChange={this.handleChange} className="materialize-textarea"></textarea>
                         </div>
                         {this.state.formInfo &&
-                        <div className="col s12 infos">
+                        <ContactFormInfo>
                             <i className="material-icons prefix"><FontAwesomeIcon icon={faInfoCircle} /></i>
                             <span>{this.state.formInfo}</span>
-                        </div>
+                        </ContactFormInfo>
                         }
 
                         <div className="input-field col s12 m6 push-m6">
-                            <CursorAwareButton onClick={e => this.submitForm(e)} defaultColor='#fff' activeColor="#fe9b34" footerFix={true} >
+                            <CursorAwareButton onClick={e => this.submitForm(e)} >
                                 {this.props.translations.contactMeButtonLabel}
                             </CursorAwareButton>
                         </div>
                     </div>
-                </form>
+                </ContactFormWrapper>
             </div>
 
         )

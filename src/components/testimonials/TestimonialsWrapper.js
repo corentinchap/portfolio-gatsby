@@ -31,13 +31,12 @@ const TestimonialsWrapper = styled.div.attrs(props => ({
     }
   }
 `
-const TestimonialQuoteWrapper = styled.div`
-   display: flex;
-   flex-wrap: wrap;
+const TestimonialQuoteWrapper = styled.div.attrs({
+  className: "row"
+})`
    overflow: hidden;
    height: 100%;
    .testimonial-picture{
-        width:22%;
         img{
           max-height: 300px;
         }
@@ -46,22 +45,19 @@ const TestimonialQuoteWrapper = styled.div`
     outline:0;
    }
    .testimonial-quote {
-    color: #1e1e28;
-    font-size: 1.1em;
+    
+    font-size: 1.3em;
     align-self: flex-start;
     padding: 10px 30px 60px 30px;
     font-style: italic;
-    position: relative;
-    width: 77%;
-    
+    position: relative;  
     
     .website-link {
       float: right;
-      bottom: 0;
       right: 25px;
+      text-decoration: underline;
     }
     .testimonial-author{
-      bottom:0;
       left: 25px;
       span{
         font-size: 0.8em;
@@ -71,12 +67,13 @@ const TestimonialQuoteWrapper = styled.div`
     }
     .testimonial-author, .website-link {
       position: absolute;
+      color: ${p => p.theme.backgroundSecondary};
       display: inline-block;
       font-family: Nanum Gothic;
       font-style: italic;
-      padding-top: 40px;
       font-size: 16px;
       font-weight: 600;
+      bottom: -40px;
     }
     
 `

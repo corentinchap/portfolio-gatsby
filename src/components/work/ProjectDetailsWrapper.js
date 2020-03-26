@@ -49,7 +49,7 @@ const ProjectBody = styled.div`
     padding: 20px 0 0 5px;
 
     p{
-        font-size: 1.2em;
+        font-size: 1.3em;
         &:last-child{
             float: right;
         }

@@ -6,6 +6,8 @@ const w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
 
 const CarouselWrapper = styled.div`
   position: relative;
+  padding-bottom: 45px;
+  box-sizing: content-box;
   box-shadow: 3px 3px 10px rgba(0,0,0,.2);
   transition: height 1s cubic-bezier(0.165, 0.84, 0.44, 1);
   

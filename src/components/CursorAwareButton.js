@@ -67,13 +67,7 @@ class CursorAwareButton extends Component {
             span.setAttribute('style', 'top:'+relY+'px;left:'+relX+'px;')
     }
     
-    scrollToForm () {
-        window.scrollBy({ 
-            top: document.querySelector('body').scrollHeight, 
-            left: 0, 
-            behavior: 'smooth' 
-          });
-    }
+    
 
   
     render() {
@@ -82,7 +76,7 @@ class CursorAwareButton extends Component {
            <CursorAwareButtonWrapper activeColor={this.props.activeColor} >
                 <CursorAwareButtonLink  onMouseEnter={this.buttonMouseInteraction} 
                     onMouseLeave={this.buttonMouseInteraction}
-                    onClick={this.scrollToForm} 
+                    onClick={this.props.onClick} 
                     data-cursor="hover" 
                     fontColor={this.props.fontColor}
                     activeColor={this.props.activeColor}

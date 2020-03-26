@@ -21,6 +21,13 @@ const SocialContactWrapper = styled.div`
 `
 
 const AboutPresentation = ({name, position, links, getInTouchLabel}) => {
+    const scrollToForm = () => {
+        window.scrollBy({ 
+            top: document.querySelector('body').scrollHeight, 
+            left: 0, 
+            behavior: 'smooth' 
+          });
+    }
     return (
         <div>
             <AboutSummaryTitle>
