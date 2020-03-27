@@ -2,7 +2,7 @@ import React from 'react'
 import {useStaticQuery, graphql} from 'gatsby'
 import {App} from '../components/App'
 
-const IndexEN = () => {
+const Index = () => {
     const data = useStaticQuery(graphql`
     query HomeQueryEN {
         contentfulPerson(node_locale: {eq: "en-US"}) {
@@ -62,6 +62,7 @@ const IndexEN = () => {
               file {
                 url
               }
+              title
             }
           }
         }
@@ -94,4 +95,4 @@ const IndexEN = () => {
         />
     )
 }
-export default IndexEN
+export default Index

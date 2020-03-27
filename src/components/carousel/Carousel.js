@@ -32,6 +32,7 @@ class Carousel extends Component {
     this.slidesLength = this.slides.length;
     this.slideWidth = document.querySelector("#" + this.props.id + " .wrapper").clientWidth + 1;
     this.calculateHeight(this.getCurrentSlide());
+
   }
 
   componentDidUpdate(){

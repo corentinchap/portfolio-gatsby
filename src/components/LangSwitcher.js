@@ -39,8 +39,8 @@ const LangSwitcher = ({currentLocale}) => {
                 <div className="select-wrapper">
                 <FontAwesomeIcon size={"2x"} icon={faGlobeEurope} color="white" />
                 <svg className="caret" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg>
-                <select value={currentLocale === 'en-US' ? '/en' : '/fr'} onChange={(e) => navigate(e.target.value)} tabIndex="-1">
-                    <option value="/en">English</option>
+                <select value={currentLocale === 'en-US' ? '/' : '/fr'} onChange={(e) => navigate(e.target.value)} tabIndex="-1">
+                    <option value="/">English</option>
                     <option value="/fr">Francais</option>
                 </select>
                 </div>

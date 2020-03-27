@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import {down} from 'styled-breakpoints'
 
 
 const TestimonialsWrapper = styled.div.attrs(props => ({
@@ -7,33 +8,36 @@ const TestimonialsWrapper = styled.div.attrs(props => ({
 }))`
     padding-top: 100px;
     position: relative;
-    &:before, &:after {
-      content: '"';
-      position: absolute;
-      transform: scale(12);
-      z-index: 2;
-      color: ${props => props.theme.secondary};
-      font-style: normal;
-      font-family: Passion One;
-    }
-    &:before {
-      transform: scale(12) rotate(180deg);
-      left: 8px;
-      top: 175px;
-    }
-    &:after {   
-      right: 295px;
-      bottom: 50px;
-    }
-
+    
+    
     blockquote {
       border-left: 3px solid ${props => props.theme.primary};
+      &:before, &:after {
+        content: '"';
+        position: absolute;
+        transform: scale(12);
+        z-index: 2;
+        color: ${props => props.theme.secondary};
+        font-style: normal;
+        font-family: Passion One;
+      }
+
+      &:before {
+        transform: scale(12) rotate(180deg) translateY(5px);
+        left: 8px;
+        top: 0;
+      }
+      &:after {   
+        right: 0;
+        bottom: 0;
+      }
     }
   }
 `
 const TestimonialQuoteWrapper = styled.div.attrs({
   className: "row"
 })`
+
    overflow: hidden;
    height: 100%;
    .testimonial-picture{
@@ -74,6 +78,9 @@ const TestimonialQuoteWrapper = styled.div.attrs({
       font-size: 16px;
       font-weight: 600;
       bottom: -40px;
+      ${down('lg')}{
+        bottom: 0;
+      }
     }
     
 `

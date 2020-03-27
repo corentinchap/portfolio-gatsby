@@ -9,7 +9,7 @@ const AboutSection = (props) => {
     
     const {name, position, linkedinUrl, githubUrl, codewarsUrl, freecodecampUrl, image} = props.person;
     const links = {linkedinUrl, githubUrl, codewarsUrl, freecodecampUrl};
-  
+ 
     return (
         <TranslationContext.Consumer>
         {
@@ -20,12 +20,12 @@ const AboutSection = (props) => {
                     <AboutSectionClip theme={props.theme} >
                     <div className="container">
                         <div className="row flex">
-                            <div className="title valign-wrapper col m6">
+                            <div className="valign-wrapper col m12 l6">
                                 <ProfilePicture>
                                     <img src={image.file.url} alt="avatar"></img>
                                 </ProfilePicture>
                             </div>
-                            <div className="content valign-wrapper col s12 m6">
+                            <div className="valign-wrapper col m12 l6">
                                 <AboutPresentation 
                                     name={name} 
                                     position={position} 

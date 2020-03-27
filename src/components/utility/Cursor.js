@@ -15,120 +15,63 @@ const CursorWrapper = styled.div`
     user-select: none;
     z-index: 999;
     transition: transform 1.1s cubic-bezier(0.165, 0.84, 0.44, 1);
-    font-size: 14px;
-
 
     .wrapper{
         position: relative;
-        width: 52px;
+        width:52px;
         height: 52px;
-        
-        & > span{
-
+        > span {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+
+            &:after{
+                border: 2px solid ${p => p.theme.primary};
+                border-radius: 50%;
+                transition: all .5s cubic-bezier(.165,.84,.44,1);
+                content: "";
+                width: 100%;
+                height: 100%;
+                display: block;
+                ${({cursorType, theme}) => cursorType === 'hover' && `
+                    transform: scale(.4);
+                    background: ${theme.primary};
+                `}
+
+                ${({cursorType, theme}) => cursorType.substr(0,6) === 'action' && `
+                font-size: 1.2em;
+                text-align: center;
+                background: ${theme.primary};
+                    content: "${cursorType.substr(7)}";
+                    color: ${theme.fontColor};
+                    padding-top: 19%;
+                    font-family: "Space Mono";
+                    transform: scale(.9);
+                `}
+            }
         }
     }
-    
-    &[data-cursor^="action"], .cursor-action::after {
-        content: "${p => p.action}"
-    }
-
-    
-    &[data-cursor="ring"] .cursor-ring::after, 
-    &[data-cursor="hover"] .cursor-hover::after{
-        /* final state */
-        content: "";
-        opacity: 1;
-        transform: scale(1);
-    }
-    &[data-cursor^="action"] .cursor-action::after{
-        /* final state */
-        opacity: 1;
-        transform: scale(1);
-        font-size: 1.2em;
-        text-align: center;
-        padding-top: 25%;
-    }
-    &[data-cursor="hover"] .cursor-hover{
-        transform: scale(.4);
-    }
-    &[data-cursor^="action"] .cursor-action{
-        /* active state */
-        transform: scale(.8);
-    }
-
-    .cursor-ring::after{
-        /* init state  */
-        content: "";
-        border: 2px solid ${p => p.theme.primary};
-        border-radius: 50%;
-        width: 100%;
-        height: 100%;
-        display:block;
-        opacity: 0;    
-        transform: scale(0.3);
-        transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
-
-    }
-
-    .cursor-hover::after{
-        /* init state  */
-        content: "";
-        background-color: $blue;
-        border-radius: 50%;
-        width: 100%;
-        height: 100%;
-        display:block;
-        opacity: 0;    
-    }
-    .cursor-hover{
-        transform: scale(0);
-        transition: transform .5s cubic-bezier(0.165, 0.84, 0.44, 1);
-    }
-   
-
-    .cursor-action::after{
-        /* init state  */
-        content: "";
-        background-color: ${p => p.theme.primary};
-        color: #fff;
-        border-radius: 50%;
-        width: 100%;
-        height: 100%;
-        display:block;
-        opacity: 0;    
-    }
-    .cursor-action{
-        transform: scale(0);
-        transition: transform .5s cubic-bezier(0.165, 0.84, 0.44, 1);
-    }
-   
-    .cursor-action > span{
-        position: absolute;
-        z-index: 1;
-        top: 15px;
-        right: 9px;
-        color:${p => p.theme.fontColor}; /* Action text color */
-    }
-    
 `
-
 class Cursor extends Component {
-  
+    
     constructor(props){
         super(props);
         this.state = {
             cursorType: 'ring',
-            cursorElement: undefined,
+            centerOffset: 52,
+            scale: false,
+            posX : -100,
+            posY : -100
+            
         }
-        this.clientX = -100;
-        this.clientY = -100;
-        this.action = "";
         this.cursor = "undefined";
+        this.BUBBLING_SELECTORCHECK_MAXLEVELS = 3;
+
+        this.handleClick = this.handleClick.bind(this);
+        this.setCoordinates = this.setCoordinates.bind(this);
+    
     }
 
     setCoordinates(e){
@@ -136,10 +79,16 @@ class Cursor extends Component {
         this.clientY = e.clientY;
     }
 
+    shouldComponentUpdate(nextProps, nextState){
+        if(this.state.posX === nextState.posX && this.state.posY === nextState.posY && this.state.scale === nextState.scale)
+            return false
+        else
+            return true
+    }
+
     componentDidMount(){      
         this.cursor = document.getElementById('cursor');
-        
-       
+      
         this.initCursor();
 
         //There might be a better way to trigger the register event when everything is loaded from the server
@@ -147,40 +96,73 @@ class Cursor extends Component {
         setTimeout(function() {
             document.querySelectorAll('[data-cursor]').forEach(item => {         
                 if(item.id !== "cursor"){
-                    this.registerMouseEvent(item);
+
+                    item.addEventListener('mouseover', (e) => {
+                       
+                        let cursorType =  e.target.getAttribute('data-cursor');;
+                        if(cursorType === null)
+                        {
+                            cursorType = e.path.find((node, i) => {
+                                if(i <= this.BUBBLING_SELECTORCHECK_MAXLEVELS)
+                                    return (node.getAttribute('data-cursor') !== null && node.getAttribute('data-cursor') !== undefined)
+                            }).getAttribute('data-cursor');
+        
+                            
+                        }
+                        this.setState({
+                            cursorType: cursorType
+                        })
+                    })
+
+                    item.addEventListener('mouseleave', (e) => {
+                        this.setState({
+                            cursorType: 'ring'
+                        })
+                    })
                 }
             });
         }.bind(this), 2200)
-
-      
     }
 
+    componentWillUnmount(){
+        document.removeEventListener('click', e => this.handleClick(e));
+        document.removeEventListener('mousemove', e => this.setCoordinates(e));
+    }
  
     initCursor(){
-        let offset = 52;
-        document.addEventListener("mousemove", e => this.setCoordinates(e));
-
+        document.addEventListener('click', (e) => this.handleClick(e));
+        document.addEventListener('mousemove', (e) => this.setCoordinates(e));
+            
         // Animation loop
         const render = () => {
             
-            this.cursor.style.transform =  `translate(${this.clientX-offset}px, ${this.clientY-offset}px)`;
+            this.setState({
+                posX: this.clientX,
+                posY: this.clientY
+            })
+            
             requestAnimationFrame(render);
         }
         
         requestAnimationFrame(render);
-     
+
     }
 
 
     
     render() {
+        console.log(this.state.cursorType)
         return (
-            <CursorWrapper id="cursor" data-cursor={this.state.cursorType} action={this.action}>
+            <CursorWrapper 
+                id="cursor" 
+                cursorType={this.state.cursorType} 
+                style={{transform: `
+                    translate(${this.state.posX-this.state.centerOffset}px, ${this.state.posY-this.state.centerOffset}px) ${this.state.scale ? `scale(.5)` : ""}
+                `}}
+            >
                 <div className="wrapper">
-                    <span className="cursor-ring"></span>
-                    <span className="cursor-hover"></span>
-                    <span className="cursor-action">
-                        <span></span>
+                    <span>
+                        
                     </span>
                 </div>
             </CursorWrapper>
@@ -189,32 +171,18 @@ class Cursor extends Component {
     
 
     handleClick(e){
-
-        this.state.cursorElement.classList.add('expend');
-
+        console.log("oui")
+        this.setState({
+            scale: true
+        })
         setTimeout(() => {
-            this.state.cursorElement.classList.remove('expend');
+            this.setState({
+                scale: false
+            })
         }, 500);
     }
 
-    registerMouseEvent(DOMElement){
-  
-        const handleMouseEnter = (e) => {
-            let action = e.target.getAttribute("data-cursor");
-            console.log(action)
-            this.setState({
-                cursorType: action
-            });
-        }
-    
-        const handleMouseLeave = (e) => {
-            this.setState({
-                cursorType: "ring"
-            })
-        };
-        DOMElement.addEventListener('mouseEnter', handleMouseEnter)
-        DOMElement.addEventListener('mouseleave', handleMouseLeave)
-    }
+   
 
 
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import {document, window} from 'browser-monads';
+import {down} from 'styled-breakpoints'
 
 const w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 
@@ -14,7 +15,7 @@ const CarouselWrapper = styled.div`
   .wrapper{
     overflow: hidden;
     position: relative;
-    z-index: 1;
+    z-index: 0;
   }
 
   .r-slides {
@@ -32,11 +33,10 @@ const CarouselWrapper = styled.div`
 const Arrow = styled.button`
     position: absolute;
     top: 120px;
-    width: 50px;
+    width: 40px;
     height: 50px;
     background: #fff;
     border-radius: 50px;
-    margin-top: -20px;
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
     z-index: 2;
     background-size: 22px;
@@ -49,21 +49,25 @@ const Arrow = styled.button`
     &:focus{
         background-color: #fff;
     }
-    @media screen and (max-width:645px){
+    ${down('sm')}{
         bottom: -70px;
-        top:unset;
-        &.next{right:0;}
-        &.prev{left:0;}
+        top:unset;  
     }
 ` 
 
 const LeftArrrow = styled(Arrow)`
     background-image: url(https://cdn0.iconfinder.com/data/icons/navigation-set-arrows-part-one/32/ChevronLeft-512.png);
     left: -45px;
+    ${down('sm')}{
+        left: 0; 
+    }
 `
 const RightArrow = styled(Arrow)`
     background-image: url(https://cdn0.iconfinder.com/data/icons/navigation-set-arrows-part-one/32/ChevronRight-512.png);
     right: -45px;
+    ${down('sm')}{
+        right: 0;
+    }
 `
 
 const Selector = styled.ul`

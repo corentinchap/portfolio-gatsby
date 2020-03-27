@@ -34,7 +34,7 @@ module.exports = {
         short_name: "Chapatte CO",
         description: "Showcase of the work of Chapatte.CO",
         lang: 'en',
-        start_url: "/en/",
+        start_url: "/",
         background_color: "#1e1d28",
         theme_color: "#174ffc",
         icon: "src/assets/favicon.png",

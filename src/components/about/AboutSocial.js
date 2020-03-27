@@ -8,6 +8,7 @@ import styled from 'styled-components'
 const AboutSocialWrapper = styled.div`
     display: flex;
     padding-top: 18px;
+    z-index: 1;
 
     img {
         margin-right: 15px;

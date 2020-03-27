@@ -73,11 +73,10 @@ class CursorAwareButton extends Component {
     render() {
     
         return (
-           <CursorAwareButtonWrapper activeColor={this.props.activeColor} >
+           <CursorAwareButtonWrapper activeColor={this.props.activeColor} data-cursor="hover">
                 <CursorAwareButtonLink  onMouseEnter={this.buttonMouseInteraction} 
                     onMouseLeave={this.buttonMouseInteraction}
-                    onClick={this.props.onClick} 
-                    data-cursor="hover" 
+                    onClick={this.props.onClick}  
                     fontColor={this.props.fontColor}
                     activeColor={this.props.activeColor}
                 >

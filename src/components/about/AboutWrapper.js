@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from 'styled-components'
+import {down} from 'styled-breakpoints'
 
 const AboutSectionWrapper = styled.div`
     filter: drop-shadow( 0px -2px 11px #7b7b7b);
+
 `
 
 const AboutSectionClip = styled.div`
@@ -22,10 +24,15 @@ const AboutPattern = styled.div`
     ${props => props.theme.pattern}
 `
 
-const ProfilePicture = styled.div`
+const ProfilePicture = styled.div.attrs({
+    className: "hide-on-med-and-down"
+})`
     width: 420px;
     padding: 50px 0;
     img{width:100%;padding:15px;height:100%}
+    ${down('md')}{
+        margin:auto;
+    }
 `
 
 export {AboutSectionWrapper, AboutSectionClip, AboutPattern, ProfilePicture}

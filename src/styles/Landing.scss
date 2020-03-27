@@ -1,66 +1,66 @@
 @import './_variables.scss';
 
     
-.landing .project{
+// .landing .project{
 
-  &-website-link {
-      border: 3px solid #314ffc;
-      padding: 5px 5px 10px 5px;
-      border-radius: 10px;
-      float: right;
-      margin: 30px 0;
+//   &-website-link {
+//       border: 3px solid #314ffc;
+//       padding: 5px 5px 10px 5px;
+//       border-radius: 10px;
+//       float: right;
+//       margin: 30px 0;
 
-      a{color: #314ffc;}
+//       a{color: #314ffc;}
 
-      .external-link-icon{ 
-          width: 30px;
-          position: relative;
-          top: 7px;
-          margin-left: 10px;
-      }
+//       .external-link-icon{ 
+//           width: 30px;
+//           position: relative;
+//           top: 7px;
+//           margin-left: 10px;
+//       }
     
-  }
+//   }
   
-}
+// }
 
-.project-switch-button_container{
-  justify-content: space-between;
-  display: flex;
-  padding-bottom: 100px;
-  > span{
-    background: linear-gradient(to right, rgba(255,255,255,0) 50%, $orange 50%);
-    background-size: 200%;
-    background-position: 0 0;
-    display: inline;
-    transition: .5s ease-in-out;
+// .project-switch-button_container{
+//   justify-content: space-between;
+//   display: flex;
+//   padding-bottom: 100px;
+//   > span{
+//     background: linear-gradient(to right, rgba(255,255,255,0) 50%, $orange 50%);
+//     background-size: 200%;
+//     background-position: 0 0;
+//     display: inline;
+//     transition: .5s ease-in-out;
     
-  }
-  .control-left:hover, .control-right:hover{
-      background-position: -100% 0;
-      color: #fff;
-      i{opacity:0;}
-  }
+//   }
+//   .control-left:hover, .control-right:hover{
+//       background-position: -100% 0;
+//       color: #fff;
+//       i{opacity:0;}
+//   }
   
-}
-.projects{
-  justify-content: space-between;
-  .card {
-    background-color: $orange;
-    color: #fff;
-    &.selected{
-      background-color: darken($orange,15%);
-    }
-    .card-content{
-        font-size: 1.6em;
-        font-variant: small-caps;
-        letter-spacing: 1.1px;
-        font-family: Passion One;
-        z-index: 2;
-        position: relative;
-        padding: 10px;
-        text-align: center;
-      }
-    }
-}
+// }
+// .projects{
+//   justify-content: space-between;
+//   .card {
+//     background-color: $orange;
+//     color: #fff;
+//     &.selected{
+//       background-color: darken($orange,15%);
+//     }
+//     .card-content{
+//         font-size: 1.6em;
+//         font-variant: small-caps;
+//         letter-spacing: 1.1px;
+//         font-family: Passion One;
+//         z-index: 2;
+//         position: relative;
+//         padding: 10px;
+//         text-align: center;
+//       }
+//     }
+// }
 
 

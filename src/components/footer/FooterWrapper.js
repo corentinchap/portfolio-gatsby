@@ -56,6 +56,8 @@ const SocialLink = styled.div.attrs({
 })`
     padding-top: 50px;
     display: inline-flex;
+    position: relative;
+    z-index: 1;
     .social-icon{
         height: 65px;
         float:left
