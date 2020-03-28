@@ -43,7 +43,7 @@ const Layout = ({children}) => {
     <ThemeProvider theme={themeLight} bp={{lg:"1440px", md: "1024px", sm: "874px"}}>
       <LayoutWrapper className="landing">
         <Helmet>
-          <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700|Nanum+Pen+Script|Space+Mono|VT323|Passion+One&display=swap')" />
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700|Space+Mono|VT323|Passion+One&display=swap')" />
         </Helmet>
       <GlobalStyle />   
         {children}

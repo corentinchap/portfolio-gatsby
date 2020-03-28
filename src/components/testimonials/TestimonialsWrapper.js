@@ -60,6 +60,9 @@ const TestimonialQuoteWrapper = styled.div.attrs({
       float: right;
       right: 25px;
       text-decoration: underline;
+      ${down("sm")}{
+        bottom: 30px!important;
+      }
     }
     .testimonial-author{
       left: 25px;

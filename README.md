@@ -11,3 +11,4 @@ Run a production build into `./public` and publish the site to GitHub pages.
 
 Removes all dependencies, scripts and data from the installation script.
 
+## Performance report before styled components

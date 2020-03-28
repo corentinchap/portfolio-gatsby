@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
+import {down} from 'styled-breakpoints'
 
 const FooterWrapper = styled.footer`
     filter: drop-shadow( 0px -2px 11px #7b7b7b);
@@ -9,6 +10,9 @@ const FooterWrapper = styled.footer`
         background-color: ${p => p.theme.backgroundSecondary};
         padding-top: 100px;
         clip-path: polygon(0% 100%, 100% 100%, 100% 15%, 50% 0%, 0% 15%);
+        ${down('md')}{
+            padding-top:135px;
+        }
         > div:first-child {
             margin-bottom: unset;
         }

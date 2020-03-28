@@ -151,7 +151,6 @@ class Cursor extends Component {
 
     
     render() {
-        console.log(this.state.cursorType)
         return (
             <CursorWrapper 
                 id="cursor" 
@@ -171,7 +170,6 @@ class Cursor extends Component {
     
 
     handleClick(e){
-        console.log("oui")
         this.setState({
             scale: true
         })

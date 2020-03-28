@@ -47,8 +47,7 @@ class ContactForm extends Component {
 
     }
     submitForm(e){
-       console.log(this.validateForm())
-       console.log(this.props.translations)
+
     if(this.validateForm()){
         
         emailjs.send('default_service','template_HMQ3hbU7',this.state).then((response) => {

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-
+import {down} from 'styled-breakpoints'
 
 const SkillsetsWrapper = styled.div.attrs(({
     className: 'container',
@@ -19,13 +19,23 @@ const SkillsetsWrapper = styled.div.attrs(({
 `
 
 const SkillsetImage = styled.div.attrs(p => ({
-    className: 'skillsetImage valign-wrapper s12 m6 l6 col hide-on-small-only'
+    className: 'skillsetImage valign-wrapper s12 m12 l6 col hide-on-medium-down'
 }))`
-    img {width: 65%; margin-left: auto}
+    img {
+        width: 65%; 
+        margin-left: auto
+    }
+    ${down('lg')}{
+        img{
+            margin-right:auto;
+            margin-left:auto!important;
+            transform: scale(.8);
+        }
+    }
 `
 
 const SkillsetText = styled.div.attrs(props => ({
-    className: `s12 m6 l6 col ${props.right ? "push-l6" : ""}`
+    className: `m12 l6 col ${props.right ? "push-l6" : ""}`
 }))`
     font-size: 1.2em;
 `

@@ -8,8 +8,7 @@ import Footer from './footer/Footer'
 import {TranslationProvider} from '../contexts/TranslationContext'
 import Helmet from 'react-helmet'
 import 'materialize-css/dist/css/materialize.min.css'
-// import '../styles/App.scss'
-// import '../styles/Landing.scss'
+
 
 
 let TranslationContext = undefined;

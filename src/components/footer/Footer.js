@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import ContactForm from './ContactForm';
 import {TranslationContext} from '../../contexts/TranslationContext'
-import '../../styles/Footer.scss';
 import github from '../../assets/github.svg';
 import linkedin from '../../assets/linkedin.svg';
-import styled from 'styled-components';
 import {FooterWrapper, FooterTitle, SocialLinkWrapper, SocialLink} from './FooterWrapper'
 
 
@@ -18,7 +16,7 @@ class Footer extends Component {
                         <FooterWrapper>
                             <div className="footer--clip">
                             <div className="container row">
-                                <div className="col center m12 l6">
+                                <div className="col center s12 m12 l6">
                                     <FooterTitle>{translations.socialMediaStalkTitle}</FooterTitle>
                                     <SocialLinkWrapper>
                                         <SocialLink>
@@ -39,7 +37,7 @@ class Footer extends Component {
                                         </SocialLink>
                                     </SocialLinkWrapper>
                                 </div>
-                                <div className="col m12 l6">
+                                <div className="col s12 m12 l6">
                                     <ContactForm translations={translations}/>
                                 </div>
                             </div>
