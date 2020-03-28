@@ -1,18 +1,18 @@
 import React from 'react'
 import Layout from './Layout'
-import AboutSection from './AboutSection'
-import Testimonials from './Testimonials'
-import WorkSection from './WorkSection'
-import Skillset from './Skillset'
-import Footer from './Footer'
+import AboutSection from './about/AboutSection'
+import Testimonials from './testimonials/Testimonials'
+import WorkSection from './work/WorkSection'
+import Skillsets from './skillset/Skillsets'
+import Footer from './footer/Footer'
 import {TranslationProvider} from '../contexts/TranslationContext'
-import 'materialize-css/dist/css/materialize.min.css'
-import '../styles/App.scss'
-import '../styles/Landing.scss'
 import Helmet from 'react-helmet'
+import 'materialize-css/dist/css/materialize.min.css'
+
 
 
 let TranslationContext = undefined;
+
 
 const App = (props) => {
   const {person, projects, testimonials, skills, translations, lang} = props
@@ -25,7 +25,7 @@ const App = (props) => {
         <AboutSection person={person} />
         <WorkSection projects={projects} />
         <Testimonials testimonials={testimonials} />
-        <Skillset skills={skills} />
+        <Skillsets skills={skills} />
         <Footer />
       </TranslationProvider>  
     </Layout>

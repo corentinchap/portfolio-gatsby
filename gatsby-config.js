@@ -22,11 +22,10 @@ module.exports = {
     title: 'Chapatte.CO Portfolio'
   },
   plugins: [
-    'gatsby-transformer-remark',
     'gatsby-transformer-sharp',
-    'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
-    'gatsby-plugin-sass',
+    'gatsby-plugin-react-helmet',
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -34,7 +33,7 @@ module.exports = {
         short_name: "Chapatte CO",
         description: "Showcase of the work of Chapatte.CO",
         lang: 'en',
-        start_url: "/en/",
+        start_url: "/",
         background_color: "#1e1d28",
         theme_color: "#174ffc",
         icon: "src/assets/favicon.png",
@@ -58,6 +57,12 @@ module.exports = {
       options: {
         trackingId: "UA-46181834-6"
       }
+    },
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+        displayName: true,
+      },
     },
   ],
 }

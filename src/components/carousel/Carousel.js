@@ -1,49 +1,7 @@
 import React, {Component} from 'react';
-import '../styles/Carousel.scss';
 import {document, window} from 'browser-monads';
+import  {CarouselLeftArrow, CarouselRightArrow, CarouselWrapper, CarouselSlide, Selector} from './CarouselWrapper'
 
-const w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-
-const CarouselLeftArrow = (props) => {
-
-  const onClick = (e) => {
-    if(w <= 640)
-      window.scroll({
-        left: 0,
-        top : document.getElementById(props.scrollInto).offsetTop-100,
-        behavior: 'smooth'
-      });
-    props.onClick(e);
-  }
-    return (
-      <button onClick={onClick} data-cursor="action-prev" className="control prev"></button>
-    );
-  
-}
-
-const CarouselRightArrow = (props) => {
-  const onClick = (e) => {
-    if(w <= 640)
-      window.scroll({
-        left: 0,
-        top : document.getElementById(props.scrollInto).offsetTop-100,
-        behavior: 'smooth'
-      });
-    props.onClick(e);
-  }
-  return (
-    <button onClick={onClick} data-cursor="action-next" className="control next"></button>
-  );
-  
-}
-
-const CarouselSlide = (props) => {
-    return (
-        <div className={props.isActive ? "r-slide activ" : "r-slide"} style={props.style}>  
-          {props.slide}   
-        </div>
-    )
-}
 
 class Carousel extends Component {
 
@@ -51,7 +9,7 @@ class Carousel extends Component {
     super(props);
 
     this.state = {
-      threshold: 10,
+      threshold: 100,
       index: 0,
       allowShift: true,
       cloneFirst: React.cloneElement(this.props.children[this.props.children.length - 1]),
@@ -74,6 +32,7 @@ class Carousel extends Component {
     this.slidesLength = this.slides.length;
     this.slideWidth = document.querySelector("#" + this.props.id + " .wrapper").clientWidth + 1;
     this.calculateHeight(this.getCurrentSlide());
+
   }
 
   componentDidUpdate(){
@@ -184,13 +143,13 @@ class Carousel extends Component {
 
   renderIndicators = () => {
     return(
-      <ul className="selectors">
+      <Selector>
         {this.props.children.map((item, i) => {
           return(
             <li key={i} className={i === this.state.index ? "activ" : ""}></li>
           )})
         }
-      </ul>
+      </Selector>
     )
    
   }
@@ -199,7 +158,7 @@ class Carousel extends Component {
    let currSlideHeight = parseInt(this.state.currentHeight) + parseInt(this.props.autoHeightOffset);
     return (
       <>
-      <div id={this.props.id} className="r-slider" style={{height: currSlideHeight}}>
+      <CarouselWrapper id={this.props.id} style={{height: currSlideHeight}}>
         <div className="wrapper">
           <div onMouseDown={(e) => this.dragStart(e)} 
             onTouchStart={(e) => this.dragStart(e)} id={this.props.id + "-slides"} className="r-slides"
@@ -225,9 +184,9 @@ class Carousel extends Component {
           </div>
         </div>
 
-        <CarouselLeftArrow scrollInto={this.props.id} onClick={e => this.shiftSlide(-1)} />
-        <CarouselRightArrow scrollInto={this.props.id} onClick={e => this.shiftSlide(1)} />
-      </div>
+        <CarouselLeftArrow name="carousel-left" scrollInto={this.props.id} onClick={e => this.shiftSlide(-1)} />
+        <CarouselRightArrow name="carousel-right" scrollInto={this.props.id} onClick={e => this.shiftSlide(1)} />
+      </CarouselWrapper>
        {this.renderIndicators()}
       </>
     );

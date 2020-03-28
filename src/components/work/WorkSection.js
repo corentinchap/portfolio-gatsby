@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-
 import ProjectDetails from './ProjectDetails';
-import Carousel from './Carousel';
-import {TranslationContext} from '../contexts/TranslationContext'
+import Carousel from '../carousel/Carousel';
+import {TranslationContext} from '../../contexts/TranslationContext'
+import {WorkSectionWrapper} from './WorkSectionWrapper'
+import {Title} from '../utility/Headings'
 
 const WorkSection = ({projects}) => {
     const [selectedProject, setSelectedProject] = useState(0);
@@ -15,9 +16,8 @@ const WorkSection = ({projects}) => {
         <TranslationContext.Consumer>
             {
             translation => (
-                <div className="work-section container">
-                    <h1>{translation.workSectionTitle}</h1>
-                    <div className="project-details">
+                <WorkSectionWrapper className="container">
+                    <Title>{translation.workSectionTitle}</Title>
                         <Carousel id="project-carousel" autoHeightRefSelector={".project-content"} autoHeightOffset="25" >
                             {projects.map((project,i) => {
                                 return ( 
@@ -25,8 +25,8 @@ const WorkSection = ({projects}) => {
                                 );
                             })}
                         </Carousel>                                   
-                    </div>    
-                </div>
+                        
+                </WorkSectionWrapper>
             )}
         </TranslationContext.Consumer>
             

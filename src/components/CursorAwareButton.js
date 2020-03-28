@@ -1,12 +1,58 @@
-import '../styles/CursorAwareButton.scss';
 import React, { Component } from 'react';
-import {css} from 'glamor';
+import styled from 'styled-components';
+
+const CursorAwareButtonWrapper = styled.div`
+    span{
+        position: absolute;
+        z-index: -1;
+        display: block;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        transition: width .4s ease-in-out,height .4s ease-in-out;
+        transform: translate(-50%,-50%);
+        background: ${props => props.activeColor ? props.activeColor : props.theme.background}
+    }
+    .inner-text{
+        display:inline-block;
+        padding-left: 5px;
+    }
+    
+`
+const CursorAwareButtonLink = styled.a`
+    &:hover{
+        color: ${props => props.fontColor ? props.fontColor : props.theme.primary};
+
+        span{
+            width: 225%;
+            height: 562.5px;
+        }
+    }
+    
+    color: ${props => props.activeColor ? props.activeColor : props.theme.background};
+    border: 1px solid ${props => props.activeColor ? props.activeColor : props.theme.background};
+    padding: 4px 20px;
+    text-decoration: none;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    float: right;
+    text-align: center;
+    text-transform: uppercase;
+    z-index: 1;
+    background: transparent;
+
+    &.active{
+        color: ${props => props.fontColor ? props.fontColor : props.theme.primary}
+    }
+    
+`
 
 class CursorAwareButton extends Component {
     
     buttonMouseInteraction(e){
-        var top=0, left=0;
-        var elem = e.target;
+        let top=0, left=0;
+        let elem = e.target;
         while(elem){
             top = top + parseInt(elem.offsetTop);
             left = left + parseInt(elem.offsetLeft);
@@ -20,38 +66,25 @@ class CursorAwareButton extends Component {
         if(span)
             span.setAttribute('style', 'top:'+relY+'px;left:'+relX+'px;')
     }
+    
+    
+
   
     render() {
-        let cursor_buttonStyle = css({
-            color: this.props.defaultColor,
-            border: '1px solid ' + this.props.defaultColor,
-            ':hover':{
-                color: this.props.activeColor
-            },
-            '.active' :{
-                color: this.props.activeColor
-            }
-        });
-        const cursor_button_spanStyle = css({
-            backgroundColor: this.props.defaultColor,
-            top: this.props.footerFix ? '0!important' :  ''
-        });
-
+    
         return (
-           <>
-                <a  onMouseEnter={this.buttonMouseInteraction} 
+           <CursorAwareButtonWrapper activeColor={this.props.activeColor} data-cursor="hover">
+                <CursorAwareButtonLink  onMouseEnter={this.buttonMouseInteraction} 
                     onMouseLeave={this.buttonMouseInteraction}
-                    onClick={this.props.onClick}
-                    className="cursor-button" 
-                    data-cursor="hover" 
-                    {...cursor_buttonStyle}
+                    onClick={this.props.onClick}  
+                    fontColor={this.props.fontColor}
+                    activeColor={this.props.activeColor}
                 >
                 {this.props.icon !== "" ? this.props.icon : ""}
                 {this.props.children}
-
-                    <span {...cursor_button_spanStyle}></span>
-                </a> 
-           </>
+                    <span></span>
+                </CursorAwareButtonLink> 
+           </CursorAwareButtonWrapper>
                        
             
         )

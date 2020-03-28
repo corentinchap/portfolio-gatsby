@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faExternalLinkAlt, faCodeBranch} from '@fortawesome/free-solid-svg-icons';
-import CursorAwareButton from './CursorAwareButton';
+import React, { Component } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faExternalLinkAlt, faCodeBranch} from '@fortawesome/free-solid-svg-icons'
+import CursorAwareButton from '../CursorAwareButton'
+import {ProjectWrapper, ProjectTitle, ProjectTags, ProjectBody} from './ProjectDetailsWrapper'
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 class ProjectDetails extends Component {  
@@ -9,25 +10,25 @@ class ProjectDetails extends Component {
     render() {
         const {title, tags, description, url, gitUrl}  = this.props.project;
          return(
-            <div className="project-content">
-                <div className="project-title">
-                    <h1>{title}</h1>
-                </div>
-                <div className="project-tags">
+            <ProjectWrapper>
+
+                <ProjectTitle>{title}</ProjectTitle>
+                
+                <ProjectTags>
                     <span>technologies used : </span>
                     {tags.map((item, i) => {
                         return(<span key={i}>{item}</span>)
                     })}
                 
-                </div>
-                <div className="project-body"> 
+                </ProjectTags>
+                <ProjectBody> 
                     {documentToReactComponents(description.json,{})}
-                </div>
+                </ProjectBody>
                 <div className="cta">  
                     {url && 
-                    <CursorAwareButton 
-                        defaultColor={"#1e1d28"} 
-                        activeColor={"#fe9b34"}
+                    <CursorAwareButton
+                        fontColor={"#fe9b34"} 
+                        activeColor={"black"} 
                         onClick={() => window.open(url, "_blank")} 
                         icon={<FontAwesomeIcon  icon={faExternalLinkAlt} />} 
                     >
@@ -35,9 +36,9 @@ class ProjectDetails extends Component {
                     </CursorAwareButton>  }       
                     
                     {gitUrl && 
-                    <CursorAwareButton 
-                        activeColor={"white"} 
-                        defaultColor={"#fe9b34"} 
+                    <CursorAwareButton
+                        fontColor={"white"} 
+                        activeColor={"#fe9b34"}
                         onClick={() => window.open(gitUrl, "_blank")} 
                         icon={<FontAwesomeIcon  icon={faCodeBranch} />} 
                     >          
@@ -45,7 +46,7 @@ class ProjectDetails extends Component {
                     </CursorAwareButton>}         
 
                 </div>
-            </div>
+            </ProjectWrapper>
         )
     }
     
