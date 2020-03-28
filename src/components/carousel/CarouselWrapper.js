@@ -100,7 +100,7 @@ const onClick = (e) => {
     props.onClick(e);
 }
     return (
-        <LeftArrrow onClick={onClick} data-cursor="action-prev"></LeftArrrow>
+        <LeftArrrow aria-label={props.name} onClick={onClick} data-cursor="action-prev"></LeftArrrow>
     );
 
 }
@@ -116,7 +116,7 @@ const CarouselRightArrow = (props) => {
     props.onClick(e);
     }
     return (
-        <RightArrow onClick={onClick} data-cursor="action-next"></RightArrow>
+        <RightArrow aria-label={props.name} onClick={onClick} data-cursor="action-next"></RightArrow>
     );
 }
 
