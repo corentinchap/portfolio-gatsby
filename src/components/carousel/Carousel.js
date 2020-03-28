@@ -184,8 +184,8 @@ class Carousel extends Component {
           </div>
         </div>
 
-        <CarouselLeftArrow scrollInto={this.props.id} onClick={e => this.shiftSlide(-1)} />
-        <CarouselRightArrow scrollInto={this.props.id} onClick={e => this.shiftSlide(1)} />
+        <CarouselLeftArrow name="carousel-left" scrollInto={this.props.id} onClick={e => this.shiftSlide(-1)} />
+        <CarouselRightArrow name="carousel-right" scrollInto={this.props.id} onClick={e => this.shiftSlide(1)} />
       </CarouselWrapper>
        {this.renderIndicators()}
       </>

@@ -42,7 +42,8 @@ const Layout = ({children}) => {
   return (
     <ThemeProvider theme={themeLight} bp={{lg:"1440px", md: "1024px", sm: "874px"}}>
       <LayoutWrapper className="landing">
-        <Helmet>
+        <Helmet defaultTitle="Chapatte Co Portfolio">
+          <meta name="description" content="This is the personal portfolio of a junior full-stack developer"></meta>
           <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700|Space+Mono|VT323|Passion+One&display=swap')" />
         </Helmet>
       <GlobalStyle />   

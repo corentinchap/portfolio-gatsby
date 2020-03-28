@@ -82,21 +82,21 @@ class ContactForm extends Component {
                     <FooterTitle>{this.props.translations.contactMeTitle}</FooterTitle>
                     <div className="row">
                         <div className="input-field col s12">
-                            <i className="material-icons prefix"><FontAwesomeIcon icon={faUserTie} /></i>
-                            <input name="full_name" placeholder="nom" id="full_name" type="text" onChange={this.handleChange} />
+                            <label for="full_name"><i className="material-icons prefix"><FontAwesomeIcon icon={faUserTie} /></i></label>
+                            <input id="full_name" name="full_name" placeholder="nom" id="full_name" type="text" onChange={this.handleChange} />
                         </div>
                     </div>
                     <div className="row">
                         <div className="input-field col s12" >
-                            <i id="mail-icon" className="material-icons email prefix"><FontAwesomeIcon id={'email-icon'} icon={faEnvelope} /></i>
+                            <label for="email"><i id="mail-icon" className="material-icons email prefix"><FontAwesomeIcon id={'email-icon'} icon={faEnvelope} /></i></label>
                             <input name="email" placeholder="email" id="email" type="email" onChange={this.handleChange} />
                         </div>
                     </div>
 
                     <div className="row">
                         <div className="input-field col s12">
-                            <i className="material-icons prefix"><FontAwesomeIcon icon={faPen} /></i>
-                            <textarea name="message" placeholder="message" id="textarea1" onChange={this.handleChange} className="materialize-textarea"></textarea>
+                            <label for="message"><i className="material-icons prefix"><FontAwesomeIcon icon={faPen} /></i></label>
+                            <textarea id="message" name="message" placeholder="message" id="textarea1" onChange={this.handleChange} className="materialize-textarea"></textarea>
                         </div>
                         {this.state.formInfo &&
                         <ContactFormInfo>
