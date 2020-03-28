@@ -39,7 +39,7 @@ class Carousel extends Component {
     this.calculateHeight(this.getCurrentSlide());
   }
 
-  getCurrentSlide = () => {
+  getCurrentSlide(){
     let container = document.getElementById(this.props.id + "-slides")
     if(container){
       return container.querySelector(".r-slide.activ " + this.props.autoHeightRefSelector)
