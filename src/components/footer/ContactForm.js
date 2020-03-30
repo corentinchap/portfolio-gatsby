@@ -84,13 +84,13 @@ class ContactForm extends Component {
                         <div className="input-field col s12">
                             <i className="material-icons prefix"><FontAwesomeIcon icon={faUserTie} /></i>
                             <input id="full_name" name="full_name" placeholder="nom" id="full_name" type="text" onChange={this.handleChange} />
-                            <label for="full_name"></label>
+                            <label htmlFor="full_name"></label>
                         </div>
                     </div>
                     <div className="row">
                         <div className="input-field col s12" >
                             <i id="mail-icon" className="material-icons email prefix"><FontAwesomeIcon id={'email-icon'} icon={faEnvelope} /></i>
-                            <label for="email"></label>
+                            <label htmlFor="email"></label>
                             <input name="email" placeholder="email" id="email" type="email" onChange={this.handleChange} />
                         </div>
                     </div>
@@ -98,7 +98,7 @@ class ContactForm extends Component {
                     <div className="row">
                         <div className="input-field col s12">
                             <i className="material-icons prefix"><FontAwesomeIcon icon={faPen} /></i>
-                            <label for="message"></label>
+                            <label htmlFor="message"></label>
                             <textarea id="message" name="message" placeholder="message" id="textarea1" onChange={this.handleChange} className="materialize-textarea"></textarea>
                         </div>
                         {this.state.formInfo &&

@@ -1,19 +1,24 @@
 import React from 'react'
-import github from '../../assets/github.svg'
-import linkedin from '../../assets/linkedin.svg'
-import freecodecamp from '../../assets/freecodecamp.svg'
-import codewars from '../../assets/codewars.png'
+import Github from '../../assets/github.svg'
+import LinkedIn from '../../assets/linkedin.svg'
+import Freecodecamp from '../../assets/freecodecamp.svg'
+import Codewars from '../../assets/codewars.svg'
 import styled from 'styled-components'
+import Image from 'gatsby-image'
 
 const AboutSocialWrapper = styled.div`
     display: flex;
     padding-top: 18px;
     z-index: 1;
 
-    img {
+    svg {
         margin-right: 15px;
         width: 30px;
-        path {fill: #fff;}
+        height: 30px;
+        path {
+            fill: ${p => p.theme.fontColor};
+            stroke: ${p => p.theme.fontColor};
+        }
     }
     &-contact{
         display: flex;
@@ -24,22 +29,23 @@ const AboutSocialWrapper = styled.div`
     }
 `
 
+
 const AboutSocial = (links) => {
     const {linkedinUrl, githubUrl, codewarsUrl, freecodecampUrl} = links;
     return(
         <AboutSocialWrapper data-cursor="hover">
             
                 <a title="boring but useful social media" target="_blank" rel="noopener noreferrer" href={linkedinUrl} alt="linkedIn">
-                    <img  alt="LinkedIn" src={linkedin} />
+                    <LinkedIn />
                 </a>
                 <a title="GitHub the code sharing platform" target="_blank" rel="noopener noreferrer" href={githubUrl}>
-                    <img alt="Github" src={github}/>
+                    <Github />
                 </a>
                 <a title="codewars coding game" target="_blank" rel="noopener noreferrer" href={codewarsUrl}>
-                    <img alt="Codewars" style={{filter:'invert(1)'}} src={codewars}/>
+                    <Codewars />
                 </a>
                 <a title="freeCodeCamp training certifications" target="_blank" rel="noopener noreferrer" href={freecodecampUrl}>
-                    <img alt="FreeCodeCamp" style={{filter:'invert(1)',height:'100%'}} src={freecodecamp}/>
+                    <Freecodecamp />
                 </a>
             
         </AboutSocialWrapper>

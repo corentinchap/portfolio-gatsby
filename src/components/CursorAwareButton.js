@@ -29,8 +29,8 @@ const CursorAwareButtonLink = styled.a`
         }
     }
     
-    color: ${props => props.activeColor ? props.activeColor : props.theme.background};
-    border: 1px solid ${props => props.activeColor ? props.activeColor : props.theme.background};
+    color: ${props => props.activeColor ? props.activeColor : props.theme.fontColor};
+    border: 1px solid ${props => props.activeColor ? props.activeColor : props.theme.fontColor};
     padding: 4px 20px;
     text-decoration: none;
     position: relative;

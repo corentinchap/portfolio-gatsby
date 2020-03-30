@@ -25,6 +25,14 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     'gatsby-plugin-react-helmet',
+    {
+      resolve: 'gatsby-plugin-react-svg',
+        options: {
+          rule: {
+            include: /assets/
+          }
+        }
+    },
     `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-manifest`,

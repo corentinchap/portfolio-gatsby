@@ -1,12 +1,21 @@
 import React, {useState} from 'react'
 import Cursor from './utility/Cursor'
 import {window} from 'browser-monads'
-import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
-import themeLight from '../themes/light'
-import themeDark from '../themes/dark'
+import styled, { createGlobalStyle } from 'styled-components'
+
 import Helmet from 'react-helmet'
 
 const GlobalStyle = createGlobalStyle`
+  :root {
+    --bg-planet-bright: #F2C94C;
+    --bg-planet-shadow: #828894;
+    --bg-planet-lightshadow: #D7D7D820;
+    --dot-size: 0.25rem;
+  }
+  :root.bg-dark {
+    --bg-color: #2C3144;
+  }
+
   body{
     font-family: 'Nanum Gothic';
     font-size: 100%;
@@ -29,7 +38,7 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const LayoutWrapper = styled.main`
-  background: ${props => props.theme.background}
+  background: ${props => props.theme.background};
 `
 
 
@@ -40,7 +49,6 @@ const Layout = ({children}) => {
 //  )
 
   return (
-    <ThemeProvider theme={themeLight} bp={{lg:"1440px", md: "1024px", sm: "874px"}}>
       <LayoutWrapper className="landing">
         <Helmet defaultTitle="Chapatte Co Portfolio">
           <meta name="description" content="This is the personal portfolio of a junior full-stack developer"></meta>
@@ -49,9 +57,7 @@ const Layout = ({children}) => {
       <GlobalStyle />   
         {children}
         <Cursor listenerElement={window} />
-      </LayoutWrapper>
-    </ThemeProvider>
-   
+      </LayoutWrapper>   
   )
   
 }

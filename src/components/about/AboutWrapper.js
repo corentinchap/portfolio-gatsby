@@ -3,7 +3,8 @@ import styled from 'styled-components'
 import {down} from 'styled-breakpoints'
 
 const AboutSectionWrapper = styled.div`
-    filter: drop-shadow( 0px -2px 11px #7b7b7b);
+${p => console.log(p)}
+    filter:drop-shadow(${p => p.theme.shadow});
 
 `
 
