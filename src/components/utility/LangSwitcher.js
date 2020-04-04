@@ -10,8 +10,7 @@ const LangSwitcherWrapper = styled.div`
     select{
         display: inline;
         background-color: transparent;
-        font-size: 25px;
-        color: white;
+        font-size: 25px;        
         font-family: VT323;
 
         option{
@@ -30,6 +29,20 @@ const LangSwitcherWrapper = styled.div`
         z-index: 1;
         margin-right: 10px;
     }
+    ${p => p.theme.main === "dark" ? 
+    `
+        select {color: white;}
+        svg.caret {
+            fill: white;
+        }
+    ` : `
+        svg[data-icon]{
+            filter: invert(1);
+        }
+        select{
+            border-color: ${p.theme.fontColor};
+        }
+    `}
 `
 
 const LangSwitcher = ({currentLocale}) => {

@@ -55,6 +55,7 @@ const TestimonialQuoteWrapper = styled.div.attrs({
     padding: 10px 30px 60px 30px;
     font-style: italic;
     position: relative;  
+    color: ${p => p.theme.fontColor};
     
     .website-link {
       float: right;
@@ -74,17 +75,18 @@ const TestimonialQuoteWrapper = styled.div.attrs({
     }
     .testimonial-author, .website-link {
       position: absolute;
-      color: ${p => p.theme.backgroundSecondary};
+      color: ${p => p.theme.fontColor};
       display: inline-block;
       font-family: Nanum Gothic;
       font-style: italic;
       font-size: 16px;
       font-weight: 600;
-      bottom: -40px;
+      bottom: 0px;
       ${down('lg')}{
         bottom: 0;
       }
     }
+   }
     
 `
 

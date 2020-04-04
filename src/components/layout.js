@@ -56,7 +56,7 @@ const Layout = ({children}) => {
         </Helmet>
       <GlobalStyle />   
         {children}
-        <Cursor listenerElement={window} />
+       <Cursor listenerElement={window} />
       </LayoutWrapper>   
   )
   

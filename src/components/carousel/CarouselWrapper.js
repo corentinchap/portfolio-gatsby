@@ -2,16 +2,16 @@ import React from 'react'
 import styled from 'styled-components'
 import {document, window} from 'browser-monads';
 import {down} from 'styled-breakpoints'
+import {lighten} from 'polished'
 
 const w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 
 const CarouselWrapper = styled.div`
   position: relative;
-  padding-bottom: 45px;
   box-sizing: content-box;
   box-shadow: 3px 3px 10px rgba(0,0,0,.2);
   transition: height 1s cubic-bezier(0.165, 0.84, 0.44, 1);
-  background: ${p => p.theme.background};
+  background: ${p => lighten(0.03, p.theme.background)};
   
   .wrapper{
     overflow: hidden;
@@ -78,7 +78,7 @@ const Selector = styled.ul`
     justify-content: space-around;
 
     li {
-        border: 1px solid black;
+        border: 1px solid ${p => p.theme.fontColor};
         width: 10px;
         height: 10px;
         border-radius: 50%;

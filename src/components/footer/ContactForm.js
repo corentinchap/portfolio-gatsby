@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CursorAwareButton from '../CursorAwareButton'
+import CursorAwareButton from '../utility/CursorAwareButton'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faPen, faUserTie, faEnvelope, faInfoCircle} from '@fortawesome/free-solid-svg-icons';
 import {document} from 'browser-monads';

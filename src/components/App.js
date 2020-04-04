@@ -21,15 +21,13 @@ const App = (props) => {
   TranslationContext = React.createContext(translations)
 
   const [currentTheme, setTheme] = useState(themeLight)
-  console.log(currentTheme)
 
   return (
     <ThemeProvider theme={currentTheme}>
-
        <TranslationProvider translations={translations}>
         <Helmet htmlAttributes={{lang:lang}} />
         <Layout>
-          <ToggleThemeButton toggleTheme={() => setTheme(currentTheme == themeDark ? themeLight : themeDark)} />
+          <ToggleThemeButton currentTheme={currentTheme} toggleTheme={() => setTheme(currentTheme == themeDark ? themeLight : themeDark)} />
           <AboutSection person={person} />
           <WorkSection projects={projects} />
           <Testimonials testimonials={testimonials} />

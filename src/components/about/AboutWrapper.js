@@ -3,9 +3,7 @@ import styled from 'styled-components'
 import {down} from 'styled-breakpoints'
 
 const AboutSectionWrapper = styled.div`
-${p => console.log(p)}
     filter:drop-shadow(${p => p.theme.shadow});
-
 `
 
 const AboutSectionClip = styled.div`
@@ -20,7 +18,6 @@ const AboutPattern = styled.div`
     height: 100%;
     top: 0;
     position: absolute;
-    opacity: 0.05;
     z-index: 0;
     ${props => props.theme.pattern}
 `
@@ -30,6 +27,7 @@ const ProfilePicture = styled.div.attrs({
 })`
     width: 420px;
     padding: 50px 0;
+    z-index:1;
     img{width:100%;padding:15px;height:100%}
     ${down('md')}{
         margin:auto;

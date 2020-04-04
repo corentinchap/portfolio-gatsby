@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import {down} from 'styled-breakpoints'
 
 const FooterWrapper = styled.footer`
-    filter: drop-shadow( 0px -2px 11px #7b7b7b);
+    filter:drop-shadow(${p => p.theme.shadow});
     padding-top: 100px;
 
     .footer--clip{
@@ -15,6 +15,8 @@ const FooterWrapper = styled.footer`
         }
         > div:first-child {
             margin-bottom: unset;
+            z-index:1;
+            position:relative;
         }
     }
     .footer--pattern{
@@ -61,10 +63,12 @@ const SocialLink = styled.div.attrs({
     padding-top: 50px;
     display: inline-flex;
     position: relative;
-    z-index: 1;
     .social-icon{
         height: 65px;
-        float:left
+        float:left;
+        ${p => p.theme.main === 'dark' ? `
+            filter: invert(1);
+        ` : ''}
     }
     .social-text {
         color: ${p => p.theme.fontColor};
@@ -87,6 +91,9 @@ const ContactFormWrapper = styled.form.attrs({
     }
     input, textarea{
         color: ${p => p.theme.fontColor};
+    }
+    input::placeholder, textarea::placeholder{
+        color: ${p =>  p.theme.fontColor}
     }
 `
 

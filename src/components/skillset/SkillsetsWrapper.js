@@ -38,6 +38,7 @@ const SkillsetText = styled.div.attrs(props => ({
     className: `m12 l6 col ${props.right ? "push-l6" : ""}`
 }))`
     font-size: 1.2em;
+    color: ${p => p.theme.fontColor};
 `
 
 const SkillsetWrapper = styled.div.attrs(({

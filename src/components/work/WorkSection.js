@@ -6,11 +6,6 @@ import {WorkSectionWrapper} from './WorkSectionWrapper'
 import {Title} from '../utility/Headings'
 
 const WorkSection = ({projects}) => {
-    const [selectedProject, setSelectedProject] = useState(0);
-   
-    const onProjectClick = (index) => {
-        setSelectedProject(index)
-    }
   
     return (
         <TranslationContext.Consumer>
@@ -18,7 +13,7 @@ const WorkSection = ({projects}) => {
             translation => (
                 <WorkSectionWrapper className="container">
                     <Title>{translation.workSectionTitle}</Title>
-                        <Carousel id="project-carousel" autoHeightRefSelector={".project-content"} autoHeightOffset="25" >
+                        <Carousel id="project-carousel" autoHeightRefSelector={".project-content"} autoHeightOffset="50" >
                             {projects.map((project,i) => {
                                 return ( 
                                     <ProjectDetails key={project.title} project={project} />     

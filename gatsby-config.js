@@ -57,6 +57,9 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-polished`
+    },
+    {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
     },

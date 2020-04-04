@@ -1,11 +1,13 @@
 export default { 
     main: "light",
     background: '#fff',
-    backgroundSecondary: 'rgba(255, 255, 255, 0.8)',
+    backgroundSecondary: '#B2EBF2',
     primary: "#174ffc",
     secondary: '#fe9b34',
     fontColor: "rgba(0, 0, 0, .90)",
-    pattern: ` background-color:silver;
+    pattern: ` 
+        opacity:0.2;
+        background-color:silver;
         background-image:
         radial-gradient(circle at 100% 150%, silver 24%, white 24%, white 28%, silver 28%, silver 36%, white 36%, white 40%, transparent 40%, transparent),
         radial-gradient(circle at 0    150%, silver 24%, white 24%, white 28%, silver 28%, silver 36%, white 36%, white 40%, transparent 40%, transparent),

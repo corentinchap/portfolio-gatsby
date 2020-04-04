@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import {invert} from 'polished'
 
 const ThemeSwitchSVG = styled.svg.attrs({
     viewBox: "0 0 500 500",
@@ -47,7 +48,7 @@ const ThemeSwitchSVG = styled.svg.attrs({
   `
   
   const ToggleLabelWrapper = styled.div.attrs({
-    //   "data-cursor": 'hover'
+    "data-cursor" : "hover"
   })`
     display:flex;
     position: absolute;
@@ -57,7 +58,8 @@ const ThemeSwitchSVG = styled.svg.attrs({
   `
   
   const StyledCheckbox = styled.input.attrs({
-    type: 'checkbox'
+    type: 'checkbox',
+    id: 'toggle-theme'
   })`
     height: 0;
     width: 0;
@@ -128,10 +130,12 @@ const ThemeSwitchSVG = styled.svg.attrs({
           }
         }
     }
+    }
   `
   
   const Elements = styled.div.attrs({
-    className: 'elements'
+    className: 'elements',
+    "data-cursor" : "hover"
   })`
     width: 100%;
     height: 100%;
@@ -184,7 +188,7 @@ const ThemeSwitchSVG = styled.svg.attrs({
     }
   `
   
-  const ToggleLabel = styled.label`
+  const Toggle = styled.label`
     cursor: pointer;
     padding: 1rem;
     position: relative;
@@ -194,15 +198,12 @@ const ThemeSwitchSVG = styled.svg.attrs({
     -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
   `
   
-  const ToggleThemeButton = ({toggleTheme}) => {
-    const bgSwitch = (e) => {
-      e.target.classList.toggle('bg-dark');
-      toggleTheme();
-    }
+  const ToggleThemeButton = ({currentTheme, toggleTheme}) => {
+   
     return(
       <ToggleLabelWrapper>
-        <ToggleLabel>
-          <StyledCheckbox onChange={(e) => bgSwitch(e)} />
+        <Toggle>
+          <StyledCheckbox onChange={() => toggleTheme()} />
           <Planet />
           <Elements>
             <ThemeSwitchSVG>
@@ -230,10 +231,25 @@ const ThemeSwitchSVG = styled.svg.attrs({
               <circle cx="250" cy="250" r="200" />
             </ThemeSwitchSVG>
           </Elements>
-        </ToggleLabel>
+        </Toggle>
+        <div className="valign-wrapper">
+          <ToggleLabel className="">Try {currentTheme.main === 'light' ? 'dark' : 'light'} mode</ToggleLabel>
+        </div>
       </ToggleLabelWrapper>
       
     )
   }
+
+  const ToggleLabel = styled.label.attrs({
+    htmlFor : 'toggle-theme',
+    className : 'valign-wrapper',
+  })`
+    background: ${p => p.theme.fontColor};
+    color: ${p => invert(p.theme.fontColor)};
+   
+    border-radius: 25px;
+    padding: 5px;
+    font-weight: bold;
+  `
 
 export default ToggleThemeButton

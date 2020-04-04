@@ -4,7 +4,6 @@ import LinkedIn from '../../assets/linkedin.svg'
 import Freecodecamp from '../../assets/freecodecamp.svg'
 import Codewars from '../../assets/codewars.svg'
 import styled from 'styled-components'
-import Image from 'gatsby-image'
 
 const AboutSocialWrapper = styled.div`
     display: flex;
@@ -13,12 +12,13 @@ const AboutSocialWrapper = styled.div`
 
     svg {
         margin-right: 15px;
-        width: 30px;
-        height: 30px;
-        path {
-            fill: ${p => p.theme.fontColor};
-            stroke: ${p => p.theme.fontColor};
-        }
+        width: 35px;
+        height: 35px;
+        ${p => 
+            p.theme.main === 'dark' ? 
+        `
+            filter: invert(1);
+        ` : ``}
     }
     &-contact{
         display: flex;
@@ -32,6 +32,8 @@ const AboutSocialWrapper = styled.div`
 
 const AboutSocial = (links) => {
     const {linkedinUrl, githubUrl, codewarsUrl, freecodecampUrl} = links;
+
+
     return(
         <AboutSocialWrapper data-cursor="hover">
             

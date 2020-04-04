@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import AboutSocial from './AboutSocial'
-import CursorAwareButton from '../CursorAwareButton'
+import CursorAwareButton from '../utility/CursorAwareButton'
 import {down} from 'styled-breakpoints'
 
 const SocialContactWrapper = styled.div`
@@ -11,6 +11,7 @@ const SocialContactWrapper = styled.div`
 `
 
 const AboutPresentationWrapper = styled.div`
+    z-index: 1;
     ${down('md')}{
         margin:auto;
         padding: 40px 0;

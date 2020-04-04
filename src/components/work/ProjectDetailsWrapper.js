@@ -36,18 +36,18 @@ const ProjectTags = styled.div`
       font-weight: bold;
       padding-left: 0;
     }
-      span {
-          padding: 2px 0 0 15px;
-          color: ${props => props.theme.primary};
-      }
-  }
+    span {
+        padding: 2px 0 0 15px;
+        color: ${props => props.theme.primary};
+    }
+  
 `
 
 const ProjectBody = styled.div`
     display: flex;
     flex-wrap: wrap;
     padding: 20px 0 0 5px;
-
+    color: ${p => p.theme.fontColor};
     p{
         font-size: 1.3em;
         &:last-child{

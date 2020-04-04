@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import {window} from 'browser-monads'
 
 const CursorWrapper = styled.div`
     position: fixed;
@@ -130,21 +131,24 @@ class Cursor extends Component {
     }
  
     initCursor(){
-        document.addEventListener('click', (e) => this.handleClick(e));
-        document.addEventListener('mousemove', (e) => this.setCoordinates(e));
-            
-        // Animation loop
-        const render = () => {
-            
-            this.setState({
-                posX: this.clientX,
-                posY: this.clientY
-            })
+        if(window.innerWidth > 992){
+            document.addEventListener('click', (e) => this.handleClick(e));
+            document.addEventListener('mousemove', (e) => this.setCoordinates(e));
+                
+            // Animation loop
+            const render = () => {
+                
+                this.setState({
+                    posX: this.clientX,
+                    posY: this.clientY
+                })
+                
+                requestAnimationFrame(render);
+            }
             
             requestAnimationFrame(render);
         }
         
-        requestAnimationFrame(render);
 
     }
 

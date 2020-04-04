@@ -1,7 +1,7 @@
 import React, { Component, useEffect } from 'react';
 import {TranslationContext} from '../../contexts/TranslationContext'
 import {withTheme} from 'styled-components'
-import LangSwitcher from '../LangSwitcher'
+import LangSwitcher from '../utility/LangSwitcher'
 import {AboutSectionWrapper, AboutSectionClip, AboutPattern, ProfilePicture} from './AboutWrapper'
 import AboutPresentation from './AboutPresentation'
 
