@@ -19,7 +19,7 @@ const SkillsetsWrapper = styled.div.attrs(({
 `
 
 const SkillsetImage = styled.div.attrs(p => ({
-    className: 'skillsetImage valign-wrapper s12 m12 l6 col hide-on-medium-down'
+    className: 'skillsetImage valign-wrapper s12 m12 l6 col hide-on-med-and-down'
 }))`
     img {
         width: 65%; 
@@ -70,6 +70,9 @@ const SkillsetTechs = styled.span.attrs(({
     img{
         width: auto;
         height: 45px;
+        ${p => p.theme.main === 'dark' ? `
+            filter: saturate(0) invert(1);
+        ` : ``}
     }
 `
 

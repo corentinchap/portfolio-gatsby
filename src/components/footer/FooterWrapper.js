@@ -74,7 +74,7 @@ const SocialLink = styled.div.attrs({
         color: ${p => p.theme.fontColor};
         font-family: vt323;
         text-align: left;
-        font-size: 1.2em;
+        font-size: 1.7em;
         line-height: 65px;
         margin-left: 15px;
     }

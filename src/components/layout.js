@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import Cursor from './utility/Cursor'
 import {window} from 'browser-monads'
 import styled, { createGlobalStyle } from 'styled-components'
-
+import {down} from 'styled-breakpoints'
 import Helmet from 'react-helmet'
 
 const GlobalStyle = createGlobalStyle`
@@ -19,6 +19,9 @@ const GlobalStyle = createGlobalStyle`
   body{
     font-family: 'Nanum Gothic';
     font-size: 100%;
+    ${down('md')}{
+      font-size:85%;
+    }
   }
   .flex{
     display:flex;

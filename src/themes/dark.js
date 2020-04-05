@@ -6,7 +6,7 @@ export default {
     primary: "hsla(225, 97%, 70%, 1)",
     secondary: '#fe9b34',
     pattern: ` 
-    opacity: 0.05;
+    opacity: 0.08;
     background-color:silver;
     background-image:
     radial-gradient(circle at 100% 150%, silver 24%, white 24%, white 28%, silver 28%, silver 36%, white 36%, white 40%, transparent 40%, transparent),

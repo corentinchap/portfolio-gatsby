@@ -233,7 +233,7 @@ const ThemeSwitchSVG = styled.svg.attrs({
           </Elements>
         </Toggle>
         <div className="valign-wrapper">
-          <ToggleLabel className="">Try {currentTheme.main === 'light' ? 'dark' : 'light'} mode</ToggleLabel>
+          <ToggleLabel className="">{currentTheme.main === 'light' ? 'dark' : 'light'} mode</ToggleLabel>
         </div>
       </ToggleLabelWrapper>
       
