@@ -3,7 +3,7 @@ export default {
     background: '#1F2023',
     backgroundSecondary: 'rgb(30, 29, 40)',
     fontColor: "rgba(255, 255, 255, 0.90)",
-    primary: "hsla(225, 97%, 70%, 1)",
+    primary: "#688dfd",
     secondary: '#fe9b34',
     pattern: ` 
     opacity: 0.08;

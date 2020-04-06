@@ -25,9 +25,6 @@ const App = (props) => {
   return (
     <ThemeProvider theme={currentTheme}>
        <TranslationProvider translations={translations}>
-        <Helmet htmlAttributes={{lang:lang}} >
-          <meta name="theme-color" content={currentTheme.background} />  
-        </Helmet>
         <Layout>
           <ToggleThemeButton currentTheme={currentTheme} toggleTheme={() => setTheme(currentTheme == themeDark ? themeLight : themeDark)} />
           <AboutSection person={person} />
@@ -35,6 +32,10 @@ const App = (props) => {
           <Testimonials testimonials={testimonials} />
           <Skillsets skills={skills} />
           <Footer />
+          <Helmet htmlAttributes={{lang:lang}} >
+            {console.log(currentTheme.primary)}
+            <meta name="theme-color" content={currentTheme.primary} />  
+          </Helmet>
         </Layout>
       </TranslationProvider>  
     </ThemeProvider>
